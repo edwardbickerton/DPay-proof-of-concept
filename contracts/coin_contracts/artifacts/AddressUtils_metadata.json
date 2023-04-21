@@ -1,0 +1,36 @@
+{
+	"compiler": {
+		"version": "0.4.26+commit.4563c3fc"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"methods": {}
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"DPay-proof-of-concept/contracts/coin_contracts/USDC.sol": "AddressUtils"
+		},
+		"evmVersion": "byzantium",
+		"libraries": {},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"DPay-proof-of-concept/contracts/coin_contracts/USDC.sol": {
+			"keccak256": "0xa3fa8bd0f7823a76f462d83540adb4e22a055fb1e4b6cfd0cc4d6f4336606c10",
+			"urls": [
+				"bzzr://5a807bd58eb76fc9e0f79cee139246891f4ef2f078c050c453434c4b72d4abb8"
+			]
+		}
+	},
+	"version": 1
+}

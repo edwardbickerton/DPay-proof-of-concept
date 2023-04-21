@@ -1,0 +1,37 @@
+{
+	"compiler": {
+		"version": "0.4.24+commit.e67f0147"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"methods": {},
+			"title": "SafeMath"
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"DPay-proof-of-concept/contracts/coin_contracts/wbtc.sol": "SafeMath"
+		},
+		"evmVersion": "byzantium",
+		"libraries": {},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"DPay-proof-of-concept/contracts/coin_contracts/wbtc.sol": {
+			"keccak256": "0x861ae64670fc9b2e9375b21f63d761790752d20c90f720d2f39d566d95caad2d",
+			"urls": [
+				"bzzr://51c2e913841e9fa218c100538d3e195445774174e393a3fe80fddd288c7cfe2e"
+			]
+		}
+	},
+	"version": 1
+}
