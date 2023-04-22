@@ -1,10 +1,63 @@
 {
 	"compiler": {
-		"version": "0.8.18+commit.87f61d96"
+		"version": "0.8.6+commit.11564f7e"
 	},
 	"language": "Solidity",
 	"output": {
-		"abi": [],
+		"abi": [
+			{
+				"inputs": [],
+				"name": "DAI",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "WBTC",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "WETH9",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "swapRouter",
+				"outputs": [
+					{
+						"internalType": "contract ISwapRouter",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
 		"devdoc": {
 			"kind": "dev",
 			"methods": {},
@@ -18,9 +71,9 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"DPay-proof-of-concept/contracts/DPay.sol": "DPay"
+			"contracts/DPay.sol": "DPay"
 		},
-		"evmVersion": "paris",
+		"evmVersion": "berlin",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -48,7 +101,15 @@
 				"dweb:/ipfs/QmVDZfJJ89UUCE1hMyzqpkZAtQ8jUsBgZNE5AMRG7RzRFS"
 			]
 		},
-		"@uniswap/v3-periphery/contracts/interfaces/ISwapRouter.sol": {
+		"contracts/DPay.sol": {
+			"keccak256": "0x6bf588d00446f6ef9bad083e8e8ee3632521d34bbabb6721b2bf8bb42b0d7e28",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://11eb5dc87796f80e9712c676d04791ab1bfe2b65997fd9270c73b8379e1ab3bc",
+				"dweb:/ipfs/QmSwD5yZH1DarHL4WxpAdtj2XidtaP273RzrFimL4BMweg"
+			]
+		},
+		"https://github.com/Uniswap/v3-periphery/blob/main/contracts/interfaces/ISwapRouter.sol": {
 			"keccak256": "0x9bfaf1feb32814623e627ab70f2409760b15d95f1f9b058e2b3399a8bb732975",
 			"license": "GPL-2.0-or-later",
 			"urls": [
@@ -56,20 +117,12 @@
 				"dweb:/ipfs/QmQj2CSCSwqDSU4KMNWxGsN2336Cy64WgpV1X1EHXNZWxM"
 			]
 		},
-		"@uniswap/v3-periphery/contracts/libraries/TransferHelper.sol": {
+		"https://github.com/Uniswap/v3-periphery/blob/main/contracts/libraries/TransferHelper.sol": {
 			"keccak256": "0x9af98b0908c96320ca6d08b22f0efca864742f6adbe5794cafe2d1d2e808b0cd",
 			"license": "GPL-2.0-or-later",
 			"urls": [
 				"bzz-raw://da1d1e81e5bf534f0bf2934b3193db6cb1933f91ec006d2b88e9ad10a617a2d2",
 				"dweb:/ipfs/QmcPBk47QLMFWcX2y2S9eMFsJgoYWBd3R8ey55Bgmv6w6v"
-			]
-		},
-		"DPay-proof-of-concept/contracts/DPay.sol": {
-			"keccak256": "0xe80c544d6614f2237c7451c5210d62ee8042e4ef92ce70c67d6665729103e544",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://33adb15b4e7c37a72f8df684931c92b8f2d171ad91cbdc5ff8c3269dcc22206d",
-				"dweb:/ipfs/QmSHHbH5jQDPnnE6pzkiF2R6ws4ftjcWj1b2ZqL3nZ2Qr2"
 			]
 		}
 	},
