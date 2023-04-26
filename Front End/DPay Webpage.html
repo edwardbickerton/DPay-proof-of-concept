@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>DPay Interface</title>
+        <meta charset="utf-8">
+        <meta name="description" content="Pay for your goods or services using the DPay application">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <link rel="stylesheet" href="styles.css">
+        <script defer src="script.js"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source Sans Pro">
+    </head>
+
+    <body style="overflow: visible;">
+        <!-- Navigation -->
+        <nav id="navbar" class="navbar">
+            <ul class="nav-list">
+                <li class="nav-item-left"><a href="#payment-page">DPay</a></li>
+                <li class="nav-item-left"><a href="#tokens-page">Tokens</a></li>
+                <!-- Finish when known how to link wallet and change blockchain -->
+                <li class="nav-item-right network-button">
+                    <div class="dropdown">
+                        <button class="change-network">
+                            <img id="network-icon" src="https://freesvg.org/img/provider-internet.png" alt="Network Icon" class="network-icon">
+                            <svg id="dropdown-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#98A1C0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="#" data-network="Ethereum"><img src="https://cdn.cdnlogo.com/logos/e/81/ethereum-eth.svg" alt="Ethereum" class="dropdown-icon">Ethereum</a>
+                            <a href="#" data-network="BNB Chain"><img src="https://cryptologos.cc/logos/binance-coin-bnb-logo.svg" alt="Binance" class="dropdown-icon">BNB Chain</a>
+                            <a href="#" data-network="Polygon"><img src="https://cdn.iconscout.com/icon/free/png-512/free-polygon-token-4086725-3379855.png?f=avif&w=256" alt="Polygon" class="dropdown-icon">Polygon</a>
+                            <a href="#" data-network="Optimism"><img src="https://cryptologos.cc/logos/optimism-ethereum-op-logo.svg?v=024" alt="Optimism" class="dropdown-icon">Optimism</a>
+                        </div>
+                    </div>
+                </li>
+                  
+                <li class="nav-item-right"><a href="#">Connect</a></li>
+                <!-- Finish when known how to link wallet and change blockchain -->
+            </ul>
+        </nav>
+
+        <!-- Payment Section-->
+        <div class="pay-area">               
+            <main class="pay-box">
+                <section id="payment-details">
+                    <div class="wallet-info">
+                      <div class="level"><h2>Your Wallet</h2></div>
+                      <ol>
+                        <li class="coin-button">
+                            <div class="coin-dropdown">
+                                <button class="change-coin">
+                                    <img id="coin-icon" src="https://cdn.cdnlogo.com/logos/e/81/ethereum-eth.svg" alt="Coin Icon" class="coin-icon">
+                                    <svg id="coin-dropdown-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#98A1C0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                    </svg>
+                                </button>
+                                <div class="coin-dropdown-content">
+                                    <a href="#" data-network="ETH"><img src="https://cdn.cdnlogo.com/logos/e/81/ethereum-eth.svg" alt="Ethereum" class="coin-dropdown-icon">ETH</a>
+                                    <a href="#" data-network="USDT"><img src="https://cryptologos.cc/logos/tether-usdt-logo.svg?v=024" alt="Tether" class="coin-dropdown-icon">USDT</a>
+                                    <a href="#" data-network="USDC"><img src="https://cryptologos.cc/logos/usd-coin-usdc-logo.svg?v=024" alt="USD Coin" class="coin-dropdown-icon">USDC</a>
+                                    <a href="#" data-network="BNB"><img src="https://cryptologos.cc/logos/bnb-bnb-logo.svg?v=024" alt="Binance Coin" class="coin-dropdown-icon">BNB</a>
+                                    <a href="#" data-network="XRP"><img src="https://cryptologos.cc/logos/xrp-xrp-logo.svg?v=024" alt="Ripple" class="coin-dropdown-icon">XRP</a>
+                                    <a href="#" data-network="ADA"><img src="https://cryptologos.cc/logos/cardano-ada-logo.svg?v=024" alt="Cardano" class="coin-dropdown-icon">ADA</a>
+                                    <a href="#" data-network="WBTC"><img src="https://cryptologos.cc/logos/wrapped-bitcoin-wbtc-logo.svg?v=024" alt="Wrapped Bitcoin" class="coin-dropdown-icon">WBTC</a>
+                                </div>
+                        </li>
+                        <li>GBP Amount</li>
+                        <li>Equiv Coin Amount</li>
+                      </ol>
+                    </div>
+                    <div class="wallet-info">
+                      <div class="level"><h2>Target Wallet</h2></div>
+                      <ol>
+                        <li>Address</li>
+                        <li>Recipient Coin</li>
+
+                      </ol>
+                    </div>
+                    <button class="btn">Pay</button>
+                </section>
+            </main>
+        </div>
+    </body>
+</html>
