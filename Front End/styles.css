@@ -125,9 +125,6 @@ html {
     .navbar {
         background: var(--blue-dark)
     }
-    .nav-list a:hover {
-        background: var(--blue-mid)
-    }
     a {
         text-decoration: none;
         color: var(--grey-1);
@@ -138,6 +135,14 @@ html {
     padding: 20px;
     transition: background-color 0.5s ease;
     text-align: center;
+}
+
+.nav-list a:not(.dropdown-content a):hover {
+    transform: translateY(8px);
+}
+
+.nav-list a {
+    transition: transform 0.3s ease-out;
 }
 
 .navbar li {
@@ -190,6 +195,7 @@ html {
     align-items: center;
     gap: 10px;
     margin-bottom: 10px;
+    transition: transform 0.3s ease-out;
 }
 
 .dropdown-content {
@@ -210,12 +216,6 @@ html {
 .network-button {
     border-radius: 50px;
     margin: 20px;
-}
-
-.network-button:hover {
-    background-color: var(--blue-mid);
-    transition: background-color 0.5s ease;
-    border-radius: 50px;
 }
 
 .network-button a {
@@ -405,8 +405,8 @@ html {
 }
 
 .coin-dropdown-icon {
+    width: 30px;
     height: 30px;
-    width: auto;
     margin-right: 5px;
 }
 
@@ -416,8 +416,8 @@ html {
 }
 
 #coin-icon {
+    width: 30px;
     height: 30px;
-    width: auto;
     margin-right: 5px;
 }
 
