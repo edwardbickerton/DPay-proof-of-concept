@@ -39,10 +39,111 @@ html {
     -webkit-tap-highlight-color: transparent
 }
 
-/* Background Themes */
+/* LIGHT MODE COLOUR SCHEME */
+@media (prefers-color-scheme: light) {
+    html {
+        background: radial-gradient(100% 100% at 50% 0, var(--grey-1) 0, var(--grey-6) 100%), white
+    }
+    .navbar {
+        background: var(--blue-dark)
+    }
+    a {
+        text-decoration: none;
+        color: var(--grey-1);
+    }
+    .dropdown-content {
+        background: var(--grey-2);
+        box-shadow: 5px 5px 0px 0px var(--grey-darker);
+    }
+    .dropdown-content a:hover {
+        background-color: var(--blue-light);
+    }
+    .change-network {
+        background-color: transparent;
+    }
+    .wallet-info .level {
+        background: var(--blue-dark);
+        color: var(--grey-1);
+    }
+    #payment-details > button {
+        background-color: var(--blue-dark);
+    }
+    .inCoin-dropdown-content,
+    .outCoin-dropdown-content {
+        background: var(--grey-2);
+        box-shadow: 5px 5px 0px 0px var(--grey-darker);
+    }
+    .inCoin-dropdown-content a:hover,
+    .outCoin-dropdown-content a:hover {
+        background-color: var(--blue-light);
+        transform: translate3d(2px, 2px, 0);
+    }
+    .change-inCoin,
+    .change-outCoin {
+        background-color: transparent;
+    }
+    ::-webkit-scrollbar-track {
+        background-color: var(--blue-dark);
+    }
+    ::-webkit-scrollbar-thumb {
+        background-color: var(--grey-6);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: var(--grey-4);
+    }
+}
+
+/* DARK MODE COLOUR SCHEME */
 @media (prefers-color-scheme: dark) {
     html {
         background: radial-gradient(100% 100% at 50% 0, var(--grey-1) 0, var(--grey-6) 100%), white
+    }
+    .navbar {
+        background: var(--blue-dark)
+    }
+    a {
+        text-decoration: none;
+        color: var(--grey-1);
+    }
+    .dropdown-content {
+        background: var(--grey-2);
+        box-shadow: 5px 5px 0px 0px var(--grey-darker);
+    }
+    .dropdown-content a:hover {
+        background-color: var(--blue-light);
+    }
+    .change-network {
+        background-color: transparent;
+    }
+    .wallet-info .level {
+        background: var(--blue-dark);
+        color: var(--grey-1);
+    }
+    #payment-details > button {
+        background-color: var(--blue-dark);
+    }
+    .inCoin-dropdown-content,
+    .outCoin-dropdown-content {
+        background: var(--grey-2);
+        box-shadow: 5px 5px 0px 0px var(--grey-darker);
+    }
+    .inCoin-dropdown-content a:hover,
+    .outCoin-dropdown-content a:hover {
+        background-color: var(--blue-light);
+        transform: translate3d(2px, 2px, 0);
+    }
+    .change-inCoin,
+    .change-outCoin {
+        background-color: transparent;
+    }
+    ::-webkit-scrollbar-track {
+        background-color: var(--blue-dark);
+    }
+    ::-webkit-scrollbar-thumb {
+        background-color: var(--grey-6);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: var(--grey-4);
     }
 }
 
@@ -113,17 +214,6 @@ html {
   font-size: 2rem;
   padding: 2rem;
 }
-  
-
-@media (prefers-color-scheme: dark) {
-    .navbar {
-        background: var(--blue-dark)
-    }
-    a {
-        text-decoration: none;
-        color: var(--grey-1);
-    }
-} 
 
 .navbar a {
     padding: 20px;
@@ -166,18 +256,7 @@ html {
     right: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-    .dropdown-content {
-        background: var(--grey-2);
-        box-shadow: 5px 5px 0px 0px var(--grey-darker);
-    }
-    .dropdown-content a:hover {
-        background-color: var(--blue-light);
-    }
-    .change-network {
-        background-color: transparent;
-    }
-}
+
 .dropdown-content a:hover {
     transform: translate3d(2px, 2px, 0);
 }
@@ -246,16 +325,6 @@ html {
 }
 
 /* Payments Box*/
-@media (prefers-color-scheme: dark) {
-    .wallet-info .level {
-        background: var(--blue-dark);
-        color: var(--grey-1);
-    }
-    #payment-details > button {
-        background-color: var(--blue-dark);
-    }
-}
-
 #payment-details {
     margin-top: 90px;
     margin-left: auto;
@@ -342,23 +411,6 @@ html {
 }
 
 /* Coin Dropdown Menus */
-@media (prefers-color-scheme: dark) {
-    .inCoin-dropdown-content,
-    .outCoin-dropdown-content {
-        background: var(--grey-2);
-        box-shadow: 5px 5px 0px 0px var(--grey-darker);
-    }
-    .inCoin-dropdown-content a:hover,
-    .outCoin-dropdown-content a:hover {
-        background-color: var(--blue-light);
-        transform: translate3d(2px, 2px, 0);
-    }
-    .change-inCoin,
-    .change-outCoin {
-        background-color: transparent;
-    }
-}
-
 .inCoin-dropdown,
 .outCoin-dropdown {
     position: relative;
@@ -447,18 +499,6 @@ html {
 }
 
 /* Scrollbar Design */
-@media (prefers-color-scheme: dark) {
-    ::-webkit-scrollbar-track {
-        background-color: var(--blue-dark);
-    }
-    ::-webkit-scrollbar-thumb {
-        background-color: var(--grey-6);
-    }
-    ::-webkit-scrollbar-thumb:hover {
-        background-color: var(--grey-4);
-    }
-}
-
 ::-webkit-scrollbar {
     width: 10px;
 }
@@ -499,23 +539,6 @@ html {
     flex-wrap: wrap;
 }
   
-.contact-details {
-    font-size: 2rem;
-    transition: transform 0.3s ease;
-}
-  
-.contact-details:hover {
-    transform: translate3D(2px, 2px, 0);
-}
-  
-.contact-details{
-    color: var(--grey-1);
-}
-  
-.contact-details:hover {
-    color: var(--grey-3);
-}
-
 .coin-link-icon {
     height: 80px;
     margin: 50px;
@@ -526,4 +549,31 @@ html {
     transform: translate3d(2px, 2px, 0px);
 }
 
-/**/
+/* Footer */
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--blue-light);
+    color: var(--grey-darker);
+    padding: 60px;
+}
+  
+.footer-item-left {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+  
+.footer-item-right {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+}
+  
+.github-link {
+    font-size: 2rem;
+    color: var(--blue-dark);
+}
+  
