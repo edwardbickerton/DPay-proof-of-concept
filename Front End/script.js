@@ -1,10 +1,10 @@
 // Listen for a click, then change the network icon to the corresponding image
 const dropdownContent = document.querySelector(".dropdown-content");
-const outCoinDropdownContent = document.querySelector(".outCoin-dropdown-content");
+const inCoinDropdownContent = document.querySelector(".inCoin-dropdown-content");
 const networkIcon = document.querySelector("#network-icon");
-const outCoinIcon = document.querySelector("#outCoin-icon");
+const inCoinIcon = document.querySelector("#inCoin-icon");
 const svgIcon = document.querySelector("#network-icon + svg");
-const outCoinSvgIcon = document.querySelector("#outCoin-icon + svg");
+const inCoinSvgIcon = document.querySelector("#inCoin-icon + svg");
           
 dropdownContent.addEventListener("click", function(event) {
     if (event.target.tagName === "A") {
@@ -15,27 +15,27 @@ dropdownContent.addEventListener("click", function(event) {
     }
 });
 
-outCoinDropdownContent.addEventListener("click", function(event) {
+inCoinDropdownContent.addEventListener("click", function(event) {
     if (event.target.tagName === "A") {
-        const outCoin = event.target.getAttribute('data-network');
-        const outCoinUrl = event.target.querySelector(".outCoin-dropdown-icon").getAttribute("src");
-        outCoinIcon.setAttribute("src", outCoinUrl);
-        outCoinSvgIcon.classList.remove("rotate");
+        const inCoin = event.target.getAttribute('data-network');
+        const inCoinUrl = event.target.querySelector(".inCoin-dropdown-icon").getAttribute("src");
+        inCoinIcon.setAttribute("src", inCoinUrl);
+        inCoinSvgIcon.classList.remove("rotate");
     }
 });
 
 // Listen for a click to show the dropdown menu and rotate the SVG icon
 const dropdownButton = document.querySelector('.change-network');
 const dropdownMenu = document.querySelector('.dropdown-content');
-const outCoinDropdownButton = document.querySelector('.change-outCoin');
-const outCoinDropdownMenu = document.querySelector('.outCoin-dropdown-content');
+const inCoinDropdownButton = document.querySelector('.change-inCoin');
+const inCoinDropdownMenu = document.querySelector('.inCoin-dropdown-content');
 
 dropdownButton.addEventListener('click', function() {
   dropdownMenu.classList.toggle('show');
   svgIcon.classList.toggle('rotate');
 });
 
-outCoinDropdownButton.addEventListener('click', function() {
-    outCoinDropdownMenu.classList.toggle('show');
-    outCoinSvgIcon.classList.toggle('rotate');
+inCoinDropdownButton.addEventListener('click', function() {
+    inCoinDropdownMenu.classList.toggle('show');
+    inCoinSvgIcon.classList.toggle('rotate');
 });

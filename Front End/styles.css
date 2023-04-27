@@ -336,33 +336,33 @@ html {
     }
 }
 
-/* outCoin Dropdown */
+/* inCoin Dropdown */
 @media (prefers-color-scheme: dark) {
-    .outCoin-dropdown-content {
+    .inCoin-dropdown-content {
         background: var(--grey-2);
         box-shadow: 5px 5px 0px 0px var(--grey-darker);
     }
-    .outCoin-dropdown-content a:hover {
+    .inCoin-dropdown-content a:hover {
         background-color: var(--blue-light);
         transform: translate3d(2px, 2px, 0);
     }
-    .change-outCoin {
+    .change-inCoin {
         background-color: transparent;
     }
 }
 
-.outCoin-dropdown {
+.inCoin-dropdown {
     position: relative;
     display: inline-block;
     vertical-align: auto;
 }
 
-.outCoin-dropdown-li {
+.inCoin-dropdown-li {
     display: flex;
     align-items: center;
 }
   
-.outCoin-dropdown-content a {
+.inCoin-dropdown-content a {
     color: var(--grey-darker);
     padding: 12px 16px;
     text-decoration: none;
@@ -373,7 +373,7 @@ html {
     margin-bottom: 10px;
 }
 
-.outCoin-dropdown-content {
+.inCoin-dropdown-content {
     display: none;
     position: absolute;
     z-index: 1;
@@ -387,34 +387,34 @@ html {
     overflow-y: auto;
 }
   
-.outCoin-dropdown:focus .outCoin-dropdown-content {
+.inCoin-dropdown:focus .inCoin-dropdown-content {
     display: block;
 }
 
-.outCoin-button a {
+.inCoin-button a {
     padding: 10px;
     transition: background-color 0.2s ease, transform 0.2s ease;
     text-align: center;
 }
 
-.outCoin-dropdown-icon {
+.inCoin-dropdown-icon {
     width: 30px;
     height: 30px;
     margin-right: 5px;
 }
 
-.outCoin-dropdown-menu {
+.inCoin-dropdown-menu {
     top: 100%;
     margin-top: 1px;
 }
 
-#outCoin-icon {
+#inCoin-icon {
     width: 30px;
     height: 30px;
     margin: 2px 0px auto;
 }
 
-#outCoin-dropdown-icon.rotate {
+#inCoin-dropdown-icon.rotate {
     transform: rotate(180deg);
 }
 
@@ -422,7 +422,7 @@ html {
     display: block;
 }
   
-.change-outCoin {
+.change-inCoin {
     border: none;
     cursor: pointer;
 }
