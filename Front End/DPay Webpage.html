@@ -16,8 +16,8 @@
         <!-- Navigation -->
         <nav id="navbar" class="navbar">
             <ul class="nav-list">
-                <li class="nav-item-left"><a href="#payment-page">DPay</a></li>
-                <li class="nav-item-left"><a href="#coins-page">Coins We Accept</a></li>
+                <li class="nav-item-left"><a href="#payment-details">DPay</a></li>
+                <li class="nav-item-left"><a href="#tokens-section">Coins We Accept</a></li>
                 <!-- Finish when known how to link wallet and change blockchain -->
                 <li class="nav-item-right network-button">
                     <div class="dropdown">
@@ -28,10 +28,11 @@
                             </svg>
                         </button>
                         <div class="dropdown-content">
-                            <a href="#" data-network="Ethereum"><img src="https://cdn.cdnlogo.com/logos/e/81/ethereum-eth.svg" alt="Ethereum" class="dropdown-icon">Ethereum</a>
-                            <a href="#" data-network="BNB Chain"><img src="https://cryptologos.cc/logos/bnb-bnb-logo.svg?v=024" alt="Binance" class="dropdown-icon">BNB Chain</a>
-                            <a href="#" data-network="Polygon"><img src="https://cdn.iconscout.com/icon/free/png-512/free-polygon-token-4086725-3379855.png?f=avif&w=256" alt="Polygon" class="dropdown-icon">Polygon</a>
-                            <a href="#" data-network="Optimism"><img src="https://cryptologos.cc/logos/optimism-ethereum-op-logo.svg?v=024" alt="Optimism" class="dropdown-icon">Optimism</a>
+                            <!-- #empty is just a placeholder until contract links are figured out-->
+                            <a href="#empty" data-network="Ethereum"><img src="https://cdn.cdnlogo.com/logos/e/81/ethereum-eth.svg" alt="Ethereum" class="dropdown-icon">Ethereum</a>
+                            <a href="#empty" data-network="BNB Chain"><img src="https://cryptologos.cc/logos/bnb-bnb-logo.svg?v=024" alt="Binance" class="dropdown-icon">BNB Chain</a>
+                            <a href="#empty" data-network="Polygon"><img src="https://cdn.iconscout.com/icon/free/png-512/free-polygon-token-4086725-3379855.png?f=avif&w=256" alt="Polygon" class="dropdown-icon">Polygon</a>
+                            <a href="#empty" data-network="Optimism"><img src="https://cryptologos.cc/logos/optimism-ethereum-op-logo.svg?v=024" alt="Optimism" class="dropdown-icon">Optimism</a>
                         </div>
                     </div>
                 </li>
@@ -42,63 +43,112 @@
         </nav>
 
         <!-- Payment Section-->
-        <!-- inCoin is the coin the user sends, outCoin is the coin the recipient recieves-->
-        <div class="pay-area">               
-            <main class="pay-box">
-                <section id="payment-details">
-                    <div class="wallet-info">
-                      <div class="level">Your Wallet</div>
-                      <ul>
-                        <li class="inCoin-button">
-                            <div class="inCoin-dropdown">
-                                <button class="change-inCoin">
-                                    <img id="inCoin-icon" src="https://cdn.cdnlogo.com/logos/e/81/ethereum-eth.svg" alt="inCoin Icon" class="inCoin-icon">
-                                    <svg id="inCoin-dropdown-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#98A1C0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="6 9 12 15 18 9"></polyline>
-                                    </svg>
-                                </button>
-                                <div class="inCoin-dropdown-content">
-                                    <a href="#" data-network="ETH"><img src="https://cdn.cdnlogo.com/logos/e/81/ethereum-eth.svg" alt="Ethereum" class="inCoin-dropdown-icon">ETH</a>
-                                    <a href="#" data-network="USDT"><img src="https://cryptologos.cc/logos/tether-usdt-logo.svg?v=024" alt="Tether" class="inCoin-dropdown-icon">USDT</a>
-                                    <a href="#" data-network="USDC"><img src="https://cryptologos.cc/logos/usd-coin-usdc-logo.svg?v=024" alt="USD Coin" class="inCoin-dropdown-icon">USDC</a>
-                                    <a href="#" data-network="BNB"><img src="https://cryptologos.cc/logos/bnb-bnb-logo.svg?v=024" alt="Binance Coin" class="inCoin-dropdown-icon">BNB</a>
-                                    <a href="#" data-network="XRP"><img src="https://cryptologos.cc/logos/xrp-xrp-logo.svg?v=024" alt="Ripple" class="inCoin-dropdown-icon">XRP</a>
-                                    <a href="#" data-network="ADA"><img src="https://cdn4.iconfinder.com/data/icons/crypto-currency-and-coin-2/256/cardano_ada-512.png" alt="Cardano" class="inCoin-dropdown-icon">ADA</a>
-                                    <a href="#" data-network="WBTC"><img src="https://altcoinsbox.com/wp-content/uploads/2023/01/wbtc-wrapped-bitcoin-logo.png" alt="Wrapped Bitcoin" class="inCoin-dropdown-icon">WBTC</a>
-                                    <a href="#" data-network="DOGE"><img src="https://cryptologos.cc/logos/dogecoin-doge-logo.svg?v=024" alt="Dogecoin" class="inCoin-dropdown-icon">DOGE</a>
-                                    <a href="#" data-network="MATIC"><img src="https://cdn.iconscout.com/icon/free/png-512/free-polygon-token-4086725-3379855.png?f=avif&w=256" alt="Polygon" class="inCoin-dropdown-icon">MATIC</a>
-                                    <a href="#" data-network="SOL"><img src="https://cryptologos.cc/logos/solana-sol-logo.svg?v=024" alt="Solana" class="inCoin-dropdown-icon">SOL</a>
-                                    <a href="#" data-network="SHIB"><img src="https://cryptologos.cc/logos/shiba-inu-shib-logo.svg?v=024" alt="Shiba Inu" class="inCoin-dropdown-icon">SHIB</a>
-                                    <a href="#" data-network="DOT"><img src="https://cryptologos.cc/logos/polkadot-new-dot-logo.svg?v=024" alt="Polkadot" class="inCoin-dropdown-icon">DOT</a>
-                                </div>
+        <!-- inCoin is the coin the user sends, outCoin is the coin the recipient recieves-->          
+        <main>
+            <section id="payment-details">
+                <div class="wallet-info">
+                    <div class="level">Your Wallet</div>
+                    <ul>
+                    <li class="inCoin-button">
+                        <div class="inCoin-dropdown">
+                            <button class="change-inCoin">
+                                <img id="inCoin-icon" src="https://cdn.cdnlogo.com/logos/e/81/ethereum-eth.svg" alt="inCoin Icon" class="inCoin-icon">
+                                <svg id="inCoin-dropdown-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#98A1C0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </button>
+                            <div class="inCoin-dropdown-content">
+                                <!-- #empty is just a placeholder until contract links are figured out-->
+                                <a href="#empty" data-network="ETH"><img src="https://cdn.cdnlogo.com/logos/e/81/ethereum-eth.svg" alt="Ethereum" class="inCoin-dropdown-icon">ETH</a>
+                                <a href="#empty" data-network="USDT"><img src="https://cryptologos.cc/logos/tether-usdt-logo.svg?v=024" alt="Tether" class="inCoin-dropdown-icon">USDT</a>
+                                <a href="#empty" data-network="USDC"><img src="https://cryptologos.cc/logos/usd-coin-usdc-logo.svg?v=024" alt="USD Coin" class="inCoin-dropdown-icon">USDC</a>
+                                <a href="#empty" data-network="BNB"><img src="https://cryptologos.cc/logos/bnb-bnb-logo.svg?v=024" alt="Binance Coin" class="inCoin-dropdown-icon">BNB</a>
+                                <a href="#empty" data-network="XRP"><img src="https://cryptologos.cc/logos/xrp-xrp-logo.svg?v=024" alt="Ripple" class="inCoin-dropdown-icon">XRP</a>
+                                <a href="#empty" data-network="ADA"><img src="https://cdn4.iconfinder.com/data/icons/crypto-currency-and-coin-2/256/cardano_ada-512.png" alt="Cardano" class="inCoin-dropdown-icon">ADA</a>
+                                <a href="#empty" data-network="WBTC"><img src="https://altcoinsbox.com/wp-content/uploads/2023/01/wbtc-wrapped-bitcoin-logo.png" alt="Wrapped Bitcoin" class="inCoin-dropdown-icon">WBTC</a>
+                                <a href="#empty" data-network="DOGE"><img src="https://cryptologos.cc/logos/dogecoin-doge-logo.svg?v=024" alt="Dogecoin" class="inCoin-dropdown-icon">DOGE</a>
+                                <a href="#empty" data-network="MATIC"><img src="https://cdn.iconscout.com/icon/free/png-512/free-polygon-token-4086725-3379855.png?f=avif&w=256" alt="Polygon" class="inCoin-dropdown-icon">MATIC</a>
+                                <a href="#empty" data-network="SOL"><img src="https://cryptologos.cc/logos/solana-sol-logo.svg?v=024" alt="Solana" class="inCoin-dropdown-icon">SOL</a>
+                                <a href="#empty" data-network="SHIB"><img src="https://cryptologos.cc/logos/shiba-inu-shib-logo.svg?v=024" alt="Shiba Inu" class="inCoin-dropdown-icon">SHIB</a>
+                                <a href="#empty" data-network="DOT"><img src="https://cryptologos.cc/logos/polkadot-new-dot-logo.svg?v=024" alt="Polkadot" class="inCoin-dropdown-icon">DOT</a>
                             </div>
-                        </li>
-                        <li>
-                            <label for="transfer-gbp-value" id="gbp-value-label">GBP Value:
-                                <input id="transfer-gbp-value" type="number" required>
-                            </label>
-                        </li>
-                        <li>
-                            <label for="transfer-quantity" id="quantity-label">Coin Quantity:
-                                <p>JavaScript calculation needed to detect outCoin and use live values to convert GBP to coin quantity</p>
-                            </label>
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="wallet-info">
-                      <div class="level">Target Wallet</div>
-                      <ul>
-                        <li>Recipient Coin</li>
-                        <li>
-                            <label for="recipient" id="recipient-label">Recipient Address:
-                                <input id="recipient" type="text" required placeholder="0x71C7656EC7ab88b098defB751B7401B5f6d8976F">
-                            </label>
-                        </li>
-                      </ul>
-                    </div>
-                    <button class="confirm-payment">Pay</button>
-                </section>
-            </main>
-        </div>
+                        </div>
+                    </li>
+                    <li>
+                        <label for="transfer-gbp-value" id="gbp-value-label">GBP Value:
+                            <input id="transfer-gbp-value" type="number" required>
+                        </label>
+                    </li>
+                    <li>
+                        <label for="transfer-quantity" id="quantity-label">Coin Quantity:
+                            <p>JavaScript calculation needed to detect outCoin and use live values to convert GBP to coin quantity</p>
+                        </label>
+                    </li>
+                    </ul>
+                </div>
+                <div class="wallet-info">
+                    <div class="level">Target Wallet</div>
+                    <ul>
+                    <li class ="outCoin-button">
+                        <div class="outCoin-dropdown">
+                            <button class="change-outCoin">
+                                <img id="outCoin-icon" src="https://cdn.cdnlogo.com/logos/e/81/ethereum-eth.svg" alt="outCoin" class="outCoin-icon">
+                                <svg id="outCoin-dropdown-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#98A1C0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </button>
+                            <div class="outCoin-dropdown-content">
+                                <!-- #empty is just a placeholder until contract links are figured out-->
+                                <a href="#empty" data-network="ETH"><img src="https://cdn.cdnlogo.com/logos/e/81/ethereum-eth.svg" alt="Ethereum" class="outCoin-dropdown-icon">ETH</a>
+                                <a href="#empty" data-network="USDT"><img src="https://cryptologos.cc/logos/tether-usdt-logo.svg?v=024" alt="Tether" class="outCoin-dropdown-icon">USDT</a>
+                                <a href="#empty" data-network="USDC"><img src="https://cryptologos.cc/logos/usd-coin-usdc-logo.svg?v=024" alt="USD Coin" class="outCoin-dropdown-icon">USDC</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <label for="recipient" id="recipient-label">Recipient Address:
+                            <input id="recipient" type="text" required placeholder="0x71C7656EC7ab88b098defB751B7401B5f6d8976F">
+                        </label>
+                    </li>
+                    </ul>
+                </div>
+                <button class="confirm-payment">Pay</button>
+            </section>
+        </main>
+        <section id="tokens-section" class="tokens-section">
+            <div class="tokens-header">
+              <h2>Tokens we are currently accepting</h2>
+              <p>Click the icons for additional info</p>
+            </div>
+            <div class="tokens-links">
+              <a href="https://ethereum.org/en/eth/" id="token-link" class="token-details"><img src="https://cdn.cdnlogo.com/logos/e/81/ethereum-eth.svg" alt="Ethereum" class="coin-link-icon"></a>
+              <a href="https://tether.to/en/transparency/" id="token-link" class="token-details"><img src="https://cryptologos.cc/logos/tether-usdt-logo.svg?v=024" alt="Tether" class="coin-link-icon"></a>
+              <a href="https://www.circle.com/en/usdc" id="token-link" class="token-details"><img src="https://cryptologos.cc/logos/usd-coin-usdc-logo.svg?v=024" alt="USD Coin" class="coin-link-icon"></a>
+              <a href="https://www.binance.com/en/bnb" id="token-link" class="token-details"><img src="https://cryptologos.cc/logos/bnb-bnb-logo.svg?v=024" alt="Binance Coin" class="coin-link-icon"></a>
+              <a href="https://ripple.com/xrp/" id="token-link" class="token-details"><img src="https://cryptologos.cc/logos/xrp-xrp-logo.svg?v=024" alt="Ripple" class="coin-link-icon"></a>
+              <a href="https://cardano.org" id="token-link" class="token-details"><img src="https://cdn4.iconfinder.com/data/icons/crypto-currency-and-coin-2/256/cardano_ada-512.png" alt="Cardano" class="coin-link-icon"></a>
+              <a href="https://wbtc.network" id="token-link" class="token-details"><img src="https://altcoinsbox.com/wp-content/uploads/2023/01/wbtc-wrapped-bitcoin-logo.png" alt="Wrapped Bitcoin" class="coin-link-icon"></a>
+              <a href="https://dogecoin.com" id="token-link" class="token-details"><img src="https://cryptologos.cc/logos/dogecoin-doge-logo.svg?v=024" alt="Dogecoin" class="coin-link-icon"></a>
+              <a href="https://polygon.technology/matic-token" id="token-link" class="token-details"><img src="https://cdn.iconscout.com/icon/free/png-512/free-polygon-token-4086725-3379855.png?f=avif&w=256" alt="Polygon" class="coin-link-icon"></a>
+              <a href="https://solana.com" id="token-link" class="token-details"><img src="https://cryptologos.cc/logos/solana-sol-logo.svg?v=024" alt="Solana" class="coin-link-icon"></a>
+              <a href="https://www.shibatoken.com" id="token-link" class="token-details"><img src="https://cryptologos.cc/logos/shiba-inu-shib-logo.svg?v=024" alt="Shiba Inu" class="coin-link-icon"></a>
+              <a href="https://polkadot.network/features/dot-token/" id="token-link" class="token-details"><img src="https://cryptologos.cc/logos/polkadot-new-dot-logo.svg?v=024" alt="Polkadot" class="coin-link-icon"></a>
+            </div>
+          </section>
+          <footer>
+            <span>University of Bristol, Financial Technology Group Project 2023, Group 14</span>
+          </footer>
     </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+

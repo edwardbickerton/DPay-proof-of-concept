@@ -257,7 +257,7 @@ html {
 }
 
 #payment-details {
-    margin-top: 60px;
+    margin-top: 90px;
     margin-left: auto;
     margin-right: auto;
     display: flex;
@@ -310,6 +310,10 @@ html {
 .level {
     width: calc(100% / 3);
     font-size: 1.6rem;
+}
+
+#payment-details > button {
+    margin: 10px 0 100px 0;
     padding: 10px 0;
 }
 
@@ -328,12 +332,6 @@ html {
         margin: 0 auto;
         margin-bottom: 10px;
     }
-    #payment-details > button {
-        max-width: 300px;
-        width: 100%;
-        margin: 0 auto;
-        margin-bottom: 10px;
-    }
 }
 
 #transfer-gbp-value,
@@ -343,33 +341,39 @@ html {
     min-height: 2em;
 }
 
-/* inCoin Dropdown */
+/* Coin Dropdown Menus */
 @media (prefers-color-scheme: dark) {
-    .inCoin-dropdown-content {
+    .inCoin-dropdown-content,
+    .outCoin-dropdown-content {
         background: var(--grey-2);
         box-shadow: 5px 5px 0px 0px var(--grey-darker);
     }
-    .inCoin-dropdown-content a:hover {
+    .inCoin-dropdown-content a:hover,
+    .outCoin-dropdown-content a:hover {
         background-color: var(--blue-light);
         transform: translate3d(2px, 2px, 0);
     }
-    .change-inCoin {
+    .change-inCoin,
+    .change-outCoin {
         background-color: transparent;
     }
 }
 
-.inCoin-dropdown {
+.inCoin-dropdown,
+.outCoin-dropdown {
     position: relative;
     display: inline-block;
     vertical-align: auto;
 }
 
-.inCoin-dropdown-li {
+.inCoin-dropdown-li,
+.outCoin-dropdown-li {
     display: flex;
     align-items: center;
 }
   
-.inCoin-dropdown-content a {
+.inCoin-dropdown-content a,
+.outCoin-dropdown-content a {
     color: var(--grey-darker);
     padding: 12px 16px;
     text-decoration: none;
@@ -380,7 +384,8 @@ html {
     margin-bottom: 10px;
 }
 
-.inCoin-dropdown-content {
+.inCoin-dropdown-content,
+.outCoin-dropdown-content {
     display: none;
     position: absolute;
     z-index: 1;
@@ -394,48 +399,51 @@ html {
     overflow-y: auto;
 }
   
-.inCoin-dropdown:focus .inCoin-dropdown-content {
+.inCoin-dropdown:focus .inCoin-dropdown-content,
+.outCoin-dropdown:focus .outCoin-dropdown-content {
     display: block;
 }
 
-.inCoin-button a {
+.inCoin-button a,
+.outCoin-button a {
     padding: 10px;
     transition: background-color 0.2s ease, transform 0.2s ease;
     text-align: center;
 }
 
-.inCoin-dropdown-icon {
+.inCoin-dropdown-icon,
+.outCoin-dropdown-icon {
     width: 30px;
     height: 30px;
     margin-right: 5px;
 }
 
-.inCoin-dropdown-menu {
+.inCoin-dropdown-menu,
+.outCoin-dropdown-menu {
     top: 100%;
     margin-top: 1px;
 }
 
-#inCoin-icon {
+#inCoin-icon,
+#outCoin-icon {
     width: 30px;
     height: 30px;
     margin: 2px 0px auto;
 }
 
-#inCoin-dropdown-icon.rotate {
+#inCoin-dropdown-icon.rotate,
+#outCoin-dropdown-icon.rotate {
     transform: rotate(180deg);
 }
-
-.show {
-    display: block;
-}
   
-.change-inCoin {
+.change-inCoin,
+.change-outCoin {
     border: none;
     cursor: pointer;
 }
 
-.confirm-payment {
-    width: 200px;
+.show {
+    display: block;
 }
 
 /* Scrollbar Design */
@@ -458,3 +466,64 @@ html {
 ::-webkit-scrollbar-thumb {
     border-radius: 50px;
 }
+
+/* Accepted Coins Secion */
+.tokens-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 80vh;
+    padding: 0 rem;
+    background: var(--blue-dark);
+}
+  
+.tokens-section h2 {
+    font-size: 2rem;
+    color: var(--grey-1);
+}
+  
+.tokens-section p {
+    font-size: 1.6rem;
+    color: var(--grey-1);
+}
+  
+.tokens-links {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 980px;
+    margin-top: 4rem;
+    flex-wrap: wrap;
+}
+  
+.contact-details {
+    font-size: 2rem;
+    transition: transform 0.3s ease;
+}
+  
+.contact-details:hover {
+    transform: translate3D(2px, 2px, 0);
+}
+  
+.contact-details{
+    color: var(--grey-1);
+}
+  
+.contact-details:hover {
+    color: var(--grey-3);
+}
+
+.coin-link-icon {
+    height: 80px;
+    margin: 50px;
+    transition: transform 0.3s ease;
+}
+
+.coin-link-icon:hover {
+    transform: translate3d(2px, 2px, 0px);
+}
+
+/**/
