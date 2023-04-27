@@ -291,11 +291,14 @@ html {
     margin: 0px;
 }
   
-.wallet-info ol {
+.wallet-info ul {
     margin: 10px;
+    padding: 0;
+    text-align: center;
+    list-style: none;
 }
   
-.wallet-info ol li {
+.wallet-info ul li {
     padding: 5px 0;
 }
   
@@ -321,7 +324,7 @@ html {
     }
 }
 
-/* Coin Dropdown */
+/* Sender Coin Dropdown */
 @media (prefers-color-scheme: dark) {
     .coin-dropdown-content {
         background: var(--grey-2);
@@ -368,6 +371,8 @@ html {
     padding: 12px 16px;
     margin-top: 5px;
     right: 0;
+    max-height: 192px;
+    overflow-y: auto;
 }
   
 .coin-dropdown:focus .coin-dropdown-content {
@@ -408,4 +413,25 @@ html {
 .change-coin {
     border: none;
     cursor: pointer;
+}
+
+/* Scrollbar Design */
+@media (prefers-color-scheme: dark) {
+    ::-webkit-scrollbar-track {
+        background-color: var(--blue-dark);
+    }
+    ::-webkit-scrollbar-thumb {
+        background-color: var(--grey-6);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: var(--grey-4);
+    }
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 50px;
 }
