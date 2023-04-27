@@ -399,7 +399,7 @@ html {
 #coin-icon {
     width: 30px;
     height: 30px;
-    margin-right: 5px;
+    margin: 2px 0px auto;
 }
 
 #coin-dropdown-icon.rotate {
