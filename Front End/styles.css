@@ -336,6 +336,13 @@ html {
     }
 }
 
+#transfer-gbp-value,
+#recipient {
+    margin: 10px 0 0 0;
+    width: 100%;
+    min-height: 2em;
+}
+
 /* inCoin Dropdown */
 @media (prefers-color-scheme: dark) {
     .inCoin-dropdown-content {
