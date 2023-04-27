@@ -1,4 +1,4 @@
-# DPay-proof of concept
+# DPay Proof of Concept
 
 ## Contracts
 
