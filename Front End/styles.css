@@ -254,11 +254,6 @@ html {
     #payment-details > button {
         background-color: var(--blue-dark);
     }
-    
-    #payment-details > button:hover {
-        transform: translate3d(2px, 2px, 0);
-        cursor: pointer;
-    }
 }
 
 #payment-details {
@@ -311,46 +306,63 @@ html {
     transition: transform 0.2s ease;
 }
 
+#payment-details > button,
+.level {
+    width: calc(100% / 3);
+    font-size: 1.6rem;
+    padding: 10px 0;
+}
+
+#payment-details > button:hover {
+    transform: translate3d(2px, 2px, 0);
+    cursor: pointer;
+}
   
 @media (max-width: 800px) {
     #payment-details {
         flex-direction: column;
     }
     .wallet-info {
-      max-width: 300px;
-      width: 100%;
-      margin: 0 auto;
-      margin-bottom: 10px;
+        max-width: 300px;
+        width: 100%;
+        margin: 0 auto;
+        margin-bottom: 10px;
+    }
+    #payment-details > button {
+        max-width: 300px;
+        width: 100%;
+        margin: 0 auto;
+        margin-bottom: 10px;
     }
 }
 
-/* Sender Coin Dropdown */
+/* outCoin Dropdown */
 @media (prefers-color-scheme: dark) {
-    .coin-dropdown-content {
+    .outCoin-dropdown-content {
         background: var(--grey-2);
         box-shadow: 5px 5px 0px 0px var(--grey-darker);
     }
-    .coin-dropdown-content a:hover {
+    .outCoin-dropdown-content a:hover {
         background-color: var(--blue-light);
         transform: translate3d(2px, 2px, 0);
     }
-    .change-coin {
+    .change-outCoin {
         background-color: transparent;
     }
 }
 
-.coin-dropdown {
+.outCoin-dropdown {
     position: relative;
     display: inline-block;
     vertical-align: auto;
 }
 
-.coin-dropdown-li {
+.outCoin-dropdown-li {
     display: flex;
     align-items: center;
 }
   
-.coin-dropdown-content a {
+.outCoin-dropdown-content a {
     color: var(--grey-darker);
     padding: 12px 16px;
     text-decoration: none;
@@ -361,48 +373,48 @@ html {
     margin-bottom: 10px;
 }
 
-.coin-dropdown-content {
+.outCoin-dropdown-content {
     display: none;
     position: absolute;
     z-index: 1;
     min-width: 160px;
     border: 1px solid;
     box-shadow: 5px 5px 0px 0px var(--grey-darker);
-    padding: 12px 16px;
+    padding: 8px 16px;
     margin-top: 5px;
     right: 0;
-    max-height: 192px;
+    max-height: 250px;
     overflow-y: auto;
 }
   
-.coin-dropdown:focus .coin-dropdown-content {
+.outCoin-dropdown:focus .outCoin-dropdown-content {
     display: block;
 }
 
-.coin-button a {
+.outCoin-button a {
     padding: 10px;
     transition: background-color 0.2s ease, transform 0.2s ease;
     text-align: center;
 }
 
-.coin-dropdown-icon {
+.outCoin-dropdown-icon {
     width: 30px;
     height: 30px;
     margin-right: 5px;
 }
 
-.coin-dropdown-menu {
+.outCoin-dropdown-menu {
     top: 100%;
     margin-top: 1px;
 }
 
-#coin-icon {
+#outCoin-icon {
     width: 30px;
     height: 30px;
     margin: 2px 0px auto;
 }
 
-#coin-dropdown-icon.rotate {
+#outCoin-dropdown-icon.rotate {
     transform: rotate(180deg);
 }
 
@@ -410,9 +422,13 @@ html {
     display: block;
 }
   
-.change-coin {
+.change-outCoin {
     border: none;
     cursor: pointer;
+}
+
+.confirm-payment {
+    width: 200px;
 }
 
 /* Scrollbar Design */
