@@ -68,6 +68,7 @@ html {
   margin: 0 2rem 0 0;
   list-style: none;
   padding: 0;
+  align-items: center;
 }
 
 .nav-item-left:nth-child(2) {
@@ -111,13 +112,6 @@ html {
   display: block;
   font-size: 2rem;
   padding: 2rem;
-  border-radius: 50px;
-}
-
-.dropdown {
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
 }
   
 
@@ -133,23 +127,22 @@ html {
 
 .navbar a {
     padding: 20px;
-    transition: background-color 0.5s ease;
     text-align: center;
 }
 
 .nav-list a:not(.dropdown-content a):hover {
-    transform: translateY(8px);
+    transform: translate3D(2px, 2px, 0);
 }
 
 .nav-list a {
-    transition: transform 0.3s ease-out;
+    transition: transform 0.2s ease;
 }
 
 .navbar li {
     padding: 20px;
 }
 
-/* Dropdown Menu */
+/* Network Dropdown Menu */
 .dropdown {
     position: relative;
     display: inline-block;
@@ -175,19 +168,22 @@ html {
 
 @media (prefers-color-scheme: dark) {
     .dropdown-content {
-        background: radial-gradient(100% 100% at 50% 0, var(--blue-dark) 0, var(--blue-dark) 100%), white;
+        background: var(--grey-2);
         box-shadow: 5px 5px 0px 0px var(--grey-darker);
     }
     .dropdown-content a:hover {
-        background-color: var(--blue-mid);
+        background-color: var(--blue-light);
     }
     .change-network {
         background-color: transparent;
     }
 }
-  
+.dropdown-content a:hover {
+    transform: translate3d(2px, 2px, 0);
+}
+
 .dropdown-content a {
-    color: var(--grey-1);
+    color: var(--grey-darker);
     padding: 12px 16px;
     text-decoration: none;
     font-size: 1.2em;
@@ -195,7 +191,7 @@ html {
     align-items: center;
     gap: 10px;
     margin-bottom: 10px;
-    transition: transform 0.3s ease-out;
+    transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .dropdown-content {
@@ -203,6 +199,7 @@ html {
     position: absolute;
     z-index: 1;
     min-width: 160px;
+    border: 1px solid;
     box-shadow: 5px 5px 0px 0px var(--grey-darker);
     padding: 12px 16px;
     margin-top: 5px;
@@ -213,19 +210,13 @@ html {
     display: block;
 }
 
-.network-button {
-    border-radius: 50px;
-    margin: 20px;
-}
-
 .network-button a {
     padding: 10px;
-    transition: background-color 0.5s ease;
     text-align: center;
 }
 
 .dropdown-icon {
-    height: 20px;
+    height: 30px;
     width: auto;
     margin-right: 5px;
 }
@@ -261,12 +252,12 @@ html {
         color: var(--grey-1);
     }
     #payment-details > button {
-        background-color: var(--blue-light);
+        background-color: var(--blue-dark);
     }
     
     #payment-details > button:hover {
-        background-color: var(--blue-vlight);
-        transition: background-color 0.5s ease;
+        transform: translate3d(2px, 2px, 0);
+        cursor: pointer;
     }
 }
 
@@ -286,7 +277,6 @@ html {
     margin: 10px;
     border: 1px solid ;
     box-shadow: 5px 5px 0px 0px var(--grey-darker);
-    border-radius: 3px;
 }
 
 .wallet-info .level {
@@ -307,9 +297,12 @@ html {
 }
   
 #payment-details button {
-    border: 1;
+    border: 1px solid black;
+    color: var(--grey-1);
     margin: 15px 0;
     font-weight: 400;
+    box-shadow: 5px 5px 0px 0px var(--grey-darker);
+    transition: transform 0.2s ease;
 }
 
   
@@ -333,6 +326,7 @@ html {
     }
     .coin-dropdown-content a:hover {
         background-color: var(--blue-light);
+        transform: translate3d(2px, 2px, 0);
     }
     .change-coin {
         background-color: transparent;
@@ -348,18 +342,6 @@ html {
 .coin-dropdown-li {
     display: flex;
     align-items: center;
-}
-  
-.coin-dropdown-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: absolute;
-    z-index: 1;
-    min-width: 160px;
-    padding: 12px 16px;
-    margin-top: 5px;
-    right: 0;
 }
   
 .coin-dropdown-content a {
@@ -378,29 +360,20 @@ html {
     position: absolute;
     z-index: 1;
     min-width: 160px;
+    border: 1px solid;
     box-shadow: 5px 5px 0px 0px var(--grey-darker);
     padding: 12px 16px;
     margin-top: 5px;
     right: 0;
-  }
+}
   
 .coin-dropdown:focus .coin-dropdown-content {
     display: block;
 }
 
-.coin-button {
-    border-radius: 50px;
-    margin: 20px;
-}
-
-.coin-button:hover {
-    background-color: var(--blue-vlight);
-    border-radius: 50px;
-}
-
 .coin-button a {
     padding: 10px;
-    transition: background-color 0.5s ease;
+    transition: background-color 0.2s ease, transform 0.2s ease;
     text-align: center;
 }
 
