@@ -1,21 +1,26 @@
 /* Defining Variables*/
 :root {
+    /* Light Mode Colours */
     --grey-1: #DDDDDD;
     --grey-2: #CCCCCC;
-    --grey-3: #BBBBBB;
     --grey-4: #AAAAAA;
-    --grey-5: #999999;
     --grey-6: #888888;
     --blue-vlight: #C6C7F5;
     --blue-light: #B5B6E4;
     --blue-mid: #666699;
     --blue-dark: #4F43AE;
+
+    /* Neutral Colours*/
     --grey-dark: #424242;
     --grey-darker: #252525;
-    --rust: #EB7C47;
-    --blue-grey: #446476;
-    --khaki-brown: #CBC2A3;
-    --brown: #6C4748;
+
+    /* Dark Mode Colours*/
+    --pink-dark: #CC313D; /*E6007A*/
+    --pink-mid: #E6007A;
+    --pink-light: #F7C5CC;
+    --purple-dark: #11001C;
+    --purple-mid: #4F0147;
+
   }
   
 /* Clean Slate */
@@ -36,11 +41,93 @@ html {
     font-smooth: always;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    -webkit-tap-highlight-color: transparent
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+    transition-duration: 0.5s;
+}
+
+/* DARK MODE COLOUR SCHEME */
+@media (prefers-color-scheme: dark) {
+    html {
+        background: radial-gradient(100% 100% at 50% 0, var(--grey-dark) 0, var(--purple-dark) 100%), white
+    }
+    .navbar,
+    .tokens-section {
+        background: var(--grey-darker);
+        color: white;
+    }
+    #payment-details > button {
+        background-color: var(--pink-mid);
+        color: white;
+    }
+    .wallet-info .level {
+        background: var(--grey-darker);
+        color: white;
+    }
+    a {
+        text-decoration: none;
+        color: white;
+    }
+    .dropdown-content,
+    .inCoin-dropdown-content,
+    .outCoin-dropdown-content {
+        background: var(--grey-dark);
+    }
+    .dropdown-content a,
+    .inCoin-dropdown-content a,
+    .outCoin-dropdown-content a {
+        color: white;
+    }
+    .dropdown-content a:hover,
+    .inCoin-dropdown-content a:hover,
+    .outCoin-dropdown-content a:hover {
+        background-color: var(--pink-mid);
+    }
+    .change-network {
+        background-color: transparent;
+    }
+    .change-inCoin,
+    .change-outCoin {
+        background-color: var(--pink-mid);
+    }
+    #payment-details button,
+    .dropdown-content,
+    .wallet-info,
+    .inCoin-dropdown-content,
+    .outCoin-dropdown-content {
+        border: 1px solid black;
+        box-shadow: 5px 5px 0px 0px var(--grey-4);
+    }
+    .wallet-info {
+        background-color: var(--grey-dark);
+    }
+    .wallet-info {
+        color: white;
+    }
+    ::-webkit-scrollbar-thumb {
+        background-color: var(--pink-mid);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: var(--pink-dark);
+    }
+    ::-webkit-scrollbar-track {
+        background-color: var(--pink-light);
+    }
+    footer {
+        color: white;
+    }
+    .github-link {
+        color: var(--pink-mid);
+    }
+    #dropdown-icon,
+    #inCoin-dropdown-icon,
+    #outCoin-dropdown-icon {
+        stroke: white;
+    }
 }
 
 /* LIGHT MODE COLOUR SCHEME */
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
     html {
         background: radial-gradient(100% 100% at 50% 0, var(--grey-1) 0, var(--grey-6) 100%), white
     }
@@ -98,9 +185,14 @@ html {
     .github-link {
         color: var(--blue-dark);
     }
+    #dropdown-icon {
+        stroke: white;
+    }
+    #inCoin-dropdown-icon,
+    #outCoin-dropdown-icon {
+        stroke: var(--blue-dark);
+    }
 }
-
-/* DARK MODE COLOUR SCHEME */
 
 /* Gradient */
 #background-radial-gradient {
@@ -421,7 +513,9 @@ html {
     margin-top: 1px;
 }
 .inCoin-dropdown-content a:hover,
-.outCoin-dropdown-content a:hover {
+.outCoin-dropdown-content a:hover,
+.coin-link-icon:hover,
+.footer-item-right:hover {
         transform: translate3d(2px, 2px, 0);
 }
 #inCoin-icon,
@@ -490,10 +584,6 @@ html {
     transition: transform 0.3s ease;
 }
 
-.coin-link-icon:hover {
-    transform: translate3d(2px, 2px, 0px);
-}
-
 /* Footer */
 footer {
     display: flex;
@@ -517,5 +607,9 @@ footer {
   
 .github-link {
     font-size: 2rem;
+}
+
+.footer-item-right {
+    transition: transform 0.3s ease;
 }
   
