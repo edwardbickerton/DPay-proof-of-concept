@@ -40,104 +40,50 @@ html {
 }
 
 /* LIGHT MODE COLOUR SCHEME */
-@media (prefers-color-scheme: light) {
-    html {
-        background: radial-gradient(100% 100% at 50% 0, var(--grey-1) 0, var(--grey-6) 100%), white
-    }
-    .navbar {
-        background: var(--blue-dark)
-    }
-    a {
-        text-decoration: none;
-        color: var(--grey-1);
-    }
-    .dropdown-content {
-        background: var(--grey-2);
-        box-shadow: 5px 5px 0px 0px var(--grey-darker);
-    }
-    .dropdown-content a:hover {
-        background-color: var(--blue-light);
-    }
-    .change-network {
-        background-color: transparent;
-    }
-    .wallet-info .level {
-        background: var(--blue-dark);
-        color: var(--grey-1);
-    }
-    #payment-details > button {
-        background-color: var(--blue-dark);
-    }
-    .inCoin-dropdown-content,
-    .outCoin-dropdown-content {
-        background: var(--grey-2);
-        box-shadow: 5px 5px 0px 0px var(--grey-darker);
-    }
-    .inCoin-dropdown-content a:hover,
-    .outCoin-dropdown-content a:hover {
-        background-color: var(--blue-light);
-        transform: translate3d(2px, 2px, 0);
-    }
-    .change-inCoin,
-    .change-outCoin {
-        background-color: transparent;
-    }
-    ::-webkit-scrollbar-track {
-        background-color: var(--blue-dark);
-    }
-    ::-webkit-scrollbar-thumb {
-        background-color: var(--grey-6);
-    }
-    ::-webkit-scrollbar-thumb:hover {
-        background-color: var(--grey-4);
-    }
-}
-
-/* DARK MODE COLOUR SCHEME */
 @media (prefers-color-scheme: dark) {
     html {
         background: radial-gradient(100% 100% at 50% 0, var(--grey-1) 0, var(--grey-6) 100%), white
     }
-    .navbar {
-        background: var(--blue-dark)
-    }
-    a {
-        text-decoration: none;
-        color: var(--grey-1);
-    }
-    .dropdown-content {
-        background: var(--grey-2);
-        box-shadow: 5px 5px 0px 0px var(--grey-darker);
-    }
-    .dropdown-content a:hover {
-        background-color: var(--blue-light);
-    }
-    .change-network {
-        background-color: transparent;
-    }
-    .wallet-info .level {
+    .navbar,
+    .tokens-section,
+    #payment-details > button,
+    .wallet-info .level,
+    ::-webkit-scrollbar-track {
         background: var(--blue-dark);
         color: var(--grey-1);
     }
-    #payment-details > button {
-        background-color: var(--blue-dark);
+    a,
+    #payment-details button {
+        text-decoration: none;
+        color: var(--grey-1);
     }
+    .dropdown-content,
     .inCoin-dropdown-content,
     .outCoin-dropdown-content {
         background: var(--grey-2);
-        box-shadow: 5px 5px 0px 0px var(--grey-darker);
     }
+    .dropdown-content a,
+    .inCoin-dropdown-content a,
+    .outCoin-dropdown-content a {
+        color: var(--grey-darker);
+    }
+    .dropdown-content a:hover,
     .inCoin-dropdown-content a:hover,
     .outCoin-dropdown-content a:hover {
         background-color: var(--blue-light);
-        transform: translate3d(2px, 2px, 0);
     }
+    .change-network,
     .change-inCoin,
     .change-outCoin {
         background-color: transparent;
     }
-    ::-webkit-scrollbar-track {
-        background-color: var(--blue-dark);
+    #payment-details button,
+    .dropdown-content,
+    .wallet-info,
+    .inCoin-dropdown-content,
+    .outCoin-dropdown-content {
+        border: 1px solid black;
+        box-shadow: 5px 5px 0px 0px var(--grey-darker);
     }
     ::-webkit-scrollbar-thumb {
         background-color: var(--grey-6);
@@ -145,8 +91,18 @@ html {
     ::-webkit-scrollbar-thumb:hover {
         background-color: var(--grey-4);
     }
+    footer {
+        background-color: var(--blue-light);
+        color: var(--grey-darker);
+    }
+    .github-link {
+        color: var(--blue-dark);
+    }
 }
 
+/* DARK MODE COLOUR SCHEME */
+
+/* Gradient */
 #background-radial-gradient {
     position: fixed;
     top: 0;
@@ -262,7 +218,6 @@ html {
 }
 
 .dropdown-content a {
-    color: var(--grey-darker);
     padding: 12px 16px;
     text-decoration: none;
     font-size: 1.2em;
@@ -278,8 +233,6 @@ html {
     position: absolute;
     z-index: 1;
     min-width: 160px;
-    border: 1px solid;
-    box-shadow: 5px 5px 0px 0px var(--grey-darker);
     padding: 12px 16px;
     margin-top: 5px;
     right: 0;
@@ -342,8 +295,6 @@ html {
     text-align: center;
     width: calc(100% / 3);
     margin: 10px;
-    border: 1px solid ;
-    box-shadow: 5px 5px 0px 0px var(--grey-darker);
 }
 
 .wallet-info .level {
@@ -367,11 +318,8 @@ html {
 }
   
 #payment-details button {
-    border: 1px solid black;
-    color: var(--grey-1);
     margin: 15px 0;
     font-weight: 400;
-    box-shadow: 5px 5px 0px 0px var(--grey-darker);
     transition: transform 0.2s ease;
 }
 
@@ -426,7 +374,6 @@ html {
   
 .inCoin-dropdown-content a,
 .outCoin-dropdown-content a {
-    color: var(--grey-darker);
     padding: 12px 16px;
     text-decoration: none;
     font-size: 1.2em;
@@ -442,8 +389,6 @@ html {
     position: absolute;
     z-index: 1;
     min-width: 160px;
-    border: 1px solid;
-    box-shadow: 5px 5px 0px 0px var(--grey-darker);
     padding: 8px 16px;
     margin-top: 5px;
     right: 0;
@@ -475,7 +420,10 @@ html {
     top: 100%;
     margin-top: 1px;
 }
-
+.inCoin-dropdown-content a:hover,
+.outCoin-dropdown-content a:hover {
+        transform: translate3d(2px, 2px, 0);
+}
 #inCoin-icon,
 #outCoin-icon {
     width: 30px;
@@ -517,17 +465,14 @@ html {
     width: 100%;
     height: 80vh;
     padding: 0 rem;
-    background: var(--blue-dark);
 }
   
 .tokens-section h2 {
     font-size: 2rem;
-    color: var(--grey-1);
 }
   
 .tokens-section p {
     font-size: 1.6rem;
-    color: var(--grey-1);
 }
   
 .tokens-links {
@@ -555,11 +500,9 @@ footer {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    background-color: var(--blue-light);
-    color: var(--grey-darker);
     padding: 60px;
 }
-  
+
 .footer-item-left {
     width: 100%;
     text-align: center;
@@ -574,6 +517,5 @@ footer {
   
 .github-link {
     font-size: 2rem;
-    color: var(--blue-dark);
 }
   
