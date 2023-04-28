@@ -20,8 +20,7 @@
     --pink-light: #F7C5CC;
     --purple-dark: #11001C;
     --purple-mid: #4F0147;
-
-  }
+}
   
 /* Clean Slate */
 body, html {
@@ -49,7 +48,7 @@ html {
 /* DARK MODE COLOUR SCHEME */
 @media (prefers-color-scheme: dark) {
     html {
-        background: radial-gradient(100% 100% at 50% 0, var(--grey-dark) 0, var(--purple-dark) 100%), white
+        background: radial-gradient(100% 100% at 50% 0, var(--grey-darker) 0, var(--purple-dark) 100%);
     }
     .navbar,
     .tokens-section {
@@ -136,7 +135,7 @@ html {
     #payment-details > button,
     .wallet-info .level,
     ::-webkit-scrollbar-track {
-        background: var(--blue-dark);
+        background: darkblue;
         color: var(--grey-1);
     }
     a,
@@ -179,18 +178,18 @@ html {
         background-color: var(--grey-4);
     }
     footer {
-        background-color: var(--blue-light);
+        background-color: var(--grey-2);
         color: var(--grey-darker);
     }
     .github-link {
-        color: var(--blue-dark);
+        color: darkblue;
     }
     #dropdown-icon {
         stroke: white;
     }
     #inCoin-dropdown-icon,
     #outCoin-dropdown-icon {
-        stroke: var(--blue-dark);
+        stroke: darkblue;
     }
 }
 
