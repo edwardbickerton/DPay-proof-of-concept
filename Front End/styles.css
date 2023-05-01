@@ -93,9 +93,14 @@ html {
     .dropdown-content,
     .wallet-info,
     .inCoin-dropdown-content,
-    .outCoin-dropdown-content {
+    .outCoin-dropdown-content,
+    input[type="text"]{
         border: 1px solid black;
         box-shadow: 5px 5px 0px 0px var(--grey-4);
+    }
+    input[type="text"]:focus {
+        border-color: var(--pink-mid);
+        box-shadow: 5px 5px 4px 0px var(--pink-mid);
     }
     .wallet-info {
         background-color: var(--grey-dark);
@@ -167,9 +172,14 @@ html {
     .dropdown-content,
     .wallet-info,
     .inCoin-dropdown-content,
-    .outCoin-dropdown-content {
+    .outCoin-dropdown-content,
+    input[type="text"]{
         border: 1px solid black;
         box-shadow: 5px 5px 0px 0px var(--grey-darker);
+    }
+    input[type="text"]:focus {
+        border-color: darkblue;
+        box-shadow: 5px 5px 4px 0px darkblue;
     }
     ::-webkit-scrollbar-thumb {
         background-color: var(--grey-6);
@@ -613,36 +623,11 @@ footer {
 }
 
 /**/
-.popup {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 50%;
-    height: 50%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.8);
+input[type="text"] {
+    padding: 8px;
+    font-size: 16px;
 }
-  
-.popup-content {
-    background-color: #fefefe;
-    margin: 10% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 50%;
+
+input[type="text"]:focus {
+    outline: none;
 }
-  
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-  
-.close:hover,
-.close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-}  
