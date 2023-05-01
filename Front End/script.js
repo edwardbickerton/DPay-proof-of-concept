@@ -65,3 +65,17 @@ outCoinDropdownButton.addEventListener('click', function() {
     outCoinDropdownMenu.classList.toggle('show');
     outCoinSvgIcon.classList.toggle('rotate');
 });
+
+//
+const popupLink = document.getElementById("erc20-popup-link");
+const popup = document.getElementById("erc20-Popup");
+const closeBtn = popup.querySelector(".close");
+
+popupLink.addEventListener("click", (event) => {
+  event.preventDefault();
+  popup.style.display = "block";
+});
+
+closeBtn.addEventListener("click", () => {
+  popup.style.display = "none";
+});
