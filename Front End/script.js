@@ -9,7 +9,6 @@ dropdownContent.addEventListener("click", function(event) {
         const network = event.target.getAttribute('data-network');
         const iconUrl = event.target.querySelector(".dropdown-icon").getAttribute("src");
         networkIcon.setAttribute("src", iconUrl);
-        svgIcon.classList.remove("rotate");
     }
 });
 
@@ -23,7 +22,6 @@ inCoinDropdownContent.addEventListener("click", function(event) {
         const inCoin = event.target.getAttribute('data-network');
         const inCoinUrl = event.target.querySelector(".inCoin-dropdown-icon").getAttribute("src");
         inCoinIcon.setAttribute("src", inCoinUrl);
-        inCoinSvgIcon.classList.remove("rotate");
     }
 });
 
@@ -37,7 +35,6 @@ outCoinDropdownContent.addEventListener("click", function(event) {
         const outCoin = event.target.getAttribute('data-network');
         const outCoinUrl = event.target.querySelector(".outCoin-dropdown-icon").getAttribute("src");
         outCoinIcon.setAttribute("src", outCoinUrl);
-        outCoinSvgIcon.classList.remove("rotate");
     }
 });
 
