@@ -94,11 +94,13 @@ html {
     .wallet-info,
     .inCoin-dropdown-content,
     .outCoin-dropdown-content,
-    input[type="text"]{
+    input[type="text"],
+    input[type="number"]{
         border: 1px solid black;
         box-shadow: 5px 5px 0px 0px var(--grey-4);
     }
-    input[type="text"]:focus {
+    input[type="text"]:focus,
+    input[type="number"]:focus {
         border-color: var(--pink-mid);
         box-shadow: 5px 5px 4px 0px var(--pink-mid);
     }
@@ -173,11 +175,13 @@ html {
     .wallet-info,
     .inCoin-dropdown-content,
     .outCoin-dropdown-content,
-    input[type="text"]{
+    input[type="text"],
+    input[type="number"]{
         border: 1px solid black;
         box-shadow: 5px 5px 0px 0px var(--grey-darker);
     }
-    input[type="text"]:focus {
+    input[type="text"]:focus,
+    input[type="number"]:focus {
         border-color: darkblue;
         box-shadow: 5px 5px 4px 0px darkblue;
     }
@@ -623,11 +627,13 @@ footer {
 }
 
 /**/
-input[type="text"] {
+input[type="text"],
+input[type="number"] {
     padding: 8px;
     font-size: 16px;
 }
 
-input[type="text"]:focus {
+input[type="text"]:focus,
+input[type="number"]:focus {
     outline: none;
 }
