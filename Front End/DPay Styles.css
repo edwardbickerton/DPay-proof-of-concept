@@ -25,7 +25,7 @@
 /* Clean Slate */
 body, html {
     margin: 0;
-    padding: 0
+    padding: 0;
 }
 
 /* Fonts */
@@ -219,7 +219,9 @@ html {
     z-index: -1
 }
 
-#root,body,html {
+#root,
+body,
+html {
     min-height: 100%
 }
 
@@ -251,6 +253,7 @@ html {
 .navbar li {
     margin: 0 10px;
     position: relative;
+    padding: 20px;
 }
 
 @media (max-width: 28.75em) {
@@ -274,6 +277,7 @@ html {
   display: block;
   font-size: 2rem;
   padding: 2rem;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .navbar a {
@@ -283,14 +287,6 @@ html {
 
 .nav-list a:not(.dropdown-content a):hover {
     transform: translate3D(2px, 2px, 0);
-}
-
-.nav-list a {
-    transition: transform 0.2s ease;
-}
-
-.navbar li {
-    padding: 20px;
 }
 
 /* Network Dropdown Menu */
@@ -317,7 +313,6 @@ html {
     right: 0;
 }
 
-
 .dropdown-content a:hover {
     transform: translate3d(2px, 2px, 0);
 }
@@ -330,7 +325,6 @@ html {
     align-items: center;
     gap: 10px;
     margin-bottom: 10px;
-    transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .dropdown-content {
@@ -341,10 +335,6 @@ html {
     padding: 12px 16px;
     margin-top: 5px;
     right: 0;
-  }
-  
-.dropdown:focus .dropdown-content {
-    display: block;
 }
 
 .network-button a {
@@ -358,11 +348,6 @@ html {
     margin-right: 5px;
 }
 
-.dropdown-menu {
-    top: 100%;
-    margin-top: 1px;
-}
-
 #network-icon {
     height: 40px;
     width: auto;
@@ -373,10 +358,6 @@ html {
     transform: rotate(180deg);
 }
 
-.show {
-    display: block;
-}
-  
 .change-network {
     border: none;
     cursor: pointer;
