@@ -502,12 +502,14 @@ html {
     top: 100%;
     margin-top: 1px;
 }
+
 .inCoin-dropdown-content a:hover,
 .outCoin-dropdown-content a:hover,
 .coin-link-icon:hover,
 .footer-item-right:hover {
         transform: translate3d(2px, 2px, 0);
 }
+
 #inCoin-icon,
 #outCoin-icon {
     width: 30px;
