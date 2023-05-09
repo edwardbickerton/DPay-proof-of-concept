@@ -107,7 +107,7 @@ async function connect() {
 }
 
 /* Calculated the coin quantity equal to the input GBP amount */
-let selectedCoin = "";
+let selectedCoin = "ethereum";
 let price;
 
 // Add event listener to dropdown button
@@ -129,13 +129,7 @@ dropdownBtn.addEventListener("click", function(event) {
         
   }
 });
-fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${selectedCoin}&vs_currencies=GBP`)
-      .then(response => response.json())
-      .then(data => {
-        price = data[selectedCoin].gbp;
-        console.log(price); // This will print the price in GBP to the console
-      })
-      .catch(error => console.error(error));
+
 
 const gbpInput = document.querySelector("#transfer-gbp-value");
 const quantityLabel = document.querySelector("#quantity-label #transfer-quantity");
