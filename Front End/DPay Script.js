@@ -70,6 +70,6 @@ outCoinDropdownButton.addEventListener('click', function() {
 // Connect metamask account
 async function connect() {
     if (typeof window.ethereum !== "undefined") {
-    ethereum.request({method: "eth_requestAccounts"})
+    await ethereum.request({method: "eth_requestAccounts"})
 }
 }

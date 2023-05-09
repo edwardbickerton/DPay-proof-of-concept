@@ -55,6 +55,10 @@ html {
         background: var(--grey-darker);
         color: white;
     }
+    #connectButton {
+        background-color: var(--pink-mid);
+        color: white;
+    }
     #payment-details > button {
         background-color: var(--pink-mid);
         color: white;
@@ -90,6 +94,7 @@ html {
         background-color: var(--pink-mid);
     }
     #payment-details button,
+    #connectButton,
     .dropdown-content,
     .wallet-info,
     .inCoin-dropdown-content,
@@ -360,6 +365,17 @@ html {
 
 .change-network {
     border: none;
+    cursor: pointer;
+}
+
+#connectButton {
+    padding: 0.5em;
+    font-size: 1.6em;
+    transition: transform 0.2s ease;
+}
+
+#connectButton:hover {
+    transform: translate3d(2px, 2px, 0);
     cursor: pointer;
 }
 
