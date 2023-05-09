@@ -114,22 +114,19 @@ let price;
 const dropdownBtn = document.querySelector(".inCoin-dropdown-content");
 dropdownBtn.addEventListener("click", function(event) {
   // Get the selected coin from the clicked dropdown item
-  console.log(event.target);
   if (event.target.tagName === "A") {
     selectedCoin = event.target.getAttribute("data-network");
     const apiUrl = `https://api.coingecko.com/api/v3/simple/price?ids=${selectedCoin}&vs_currencies=GBP`;
 
-    fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${selectedCoin}&vs_currencies=GBP`)
+    fetch(apiUrl)
       .then(response => response.json())
       .then(data => {
         price = data[selectedCoin].gbp;
         console.log(price); // This will print the price in GBP to the console
       })
       .catch(error => console.error(error));
-        
   }
 });
-
 
 const gbpInput = document.querySelector("#transfer-gbp-value");
 const quantityLabel = document.querySelector("#quantity-label #transfer-quantity");
@@ -137,13 +134,8 @@ const quantityLabel = document.querySelector("#quantity-label #transfer-quantity
 gbpInput.addEventListener("input", () => {
   const gbpValue = gbpInput.value;
   const quantity = (gbpValue * 1.1) / price;
-  console.log(selectedCoin)
-  console.log(price)
   quantityLabel.textContent = `${quantity.toFixed(6)}`;
 });
-
-
-
 
 
 /* Execute the contract */
