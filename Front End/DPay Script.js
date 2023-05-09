@@ -82,5 +82,41 @@ async function execute () {
     // "inCoin": the contract address of the coin the sender wants to spend.
     // "maxInAmount": the maximum amount of inCoin the user is willing to spend.
     // "recipient": the address of the recipient who will recieve outAmount of outCoin.
-    
+
 }
+
+// Change the 
+const dropdownLinks = document.querySelectorAll('.dropdown-content a');
+
+dropdownLinks.forEach(link => {
+  link.addEventListener("click", async (event) => {
+    event.preventDefault();
+
+    const network = event.target.getAttribute("data-network");
+
+    try {
+      await ethereum.request({
+        method: "wallet_switchEthereumChain",
+        params: [{ chainId: getChainId(network) }],
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  });
+});
+
+function getChainId(network) {
+  switch (network) {
+    case "Ethereum":
+      return "0x1";
+    case "BNB Chain":
+      return "0x38";
+    case "Polygon":
+      return "0x89";
+    case "Optimism":
+      return "10";
+    default:
+      return null;
+  }
+}
+  
