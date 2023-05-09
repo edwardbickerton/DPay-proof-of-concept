@@ -73,3 +73,14 @@ async function connect() {
     await ethereum.request({method: "eth_requestAccounts"})
 }
 }
+
+// Execute the contract
+async function execute () {
+    // the following are needed:
+    // "outCoin": the contract address of the coin the recipient wants.
+    // "outAmount": the amount of outCoin which the recipient is expecting.
+    // "inCoin": the contract address of the coin the sender wants to spend.
+    // "maxInAmount": the maximum amount of inCoin the user is willing to spend.
+    // "recipient": the address of the recipient who will recieve outAmount of outCoin.
+    
+}
