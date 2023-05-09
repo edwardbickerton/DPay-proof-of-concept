@@ -1,5 +1,4 @@
-// Listen for a click to change the current icon shown on the dropdown menu
-// Network dropdown menu
+/* Network dropdown menu */
 const dropdownContent = document.querySelector(".dropdown-content");
 const networkIcon = document.querySelector("#network-icon");
 const svgIcon = document.querySelector("#network-icon + svg");
@@ -12,7 +11,7 @@ dropdownContent.addEventListener("click", function(event) {
     }
 });
 
-// inCoin dropdown menu
+/* inCoin dropdown menu */
 const inCoinDropdownContent = document.querySelector(".inCoin-dropdown-content");
 const inCoinIcon = document.querySelector("#inCoin-icon");
 const inCoinSvgIcon = document.querySelector("#inCoin-icon + svg");
@@ -25,7 +24,7 @@ inCoinDropdownContent.addEventListener("click", function(event) {
     }
 });
 
-// outCoin dropdown menu
+/* outCoin dropdown menu */
 const outCoinDropdownContent = document.querySelector(".outCoin-dropdown-content");
 const outCoinIcon = document.querySelector("#outCoin-icon");
 const outCoinSvgIcon = document.querySelector("#outCoin-icon + svg");
@@ -38,8 +37,7 @@ outCoinDropdownContent.addEventListener("click", function(event) {
     }
 });
 
-// Listen for a click to show the dropdown menu and rotate the SVG icon
-// Network dropdown rotation
+/* Network dropdown rotation */
 const dropdownButton = document.querySelector('.change-network');
 const dropdownMenu = document.querySelector('.dropdown-content');
 
@@ -48,7 +46,7 @@ dropdownButton.addEventListener('click', function() {
   svgIcon.classList.toggle('rotate');
 });
 
-// inCoin dropdown rotation
+/* inCoin dropdown rotation */
 const inCoinDropdownButton = document.querySelector('.change-inCoin');
 const inCoinDropdownMenu = document.querySelector('.inCoin-dropdown-content');
 
@@ -57,7 +55,7 @@ inCoinDropdownButton.addEventListener('click', function() {
     inCoinSvgIcon.classList.toggle('rotate');
 });
 
-// outCoin dropdown rotation
+/* outCoin dropdown rotation */
 const outCoinDropdownButton = document.querySelector('.change-outCoin');
 const outCoinDropdownMenu = document.querySelector('.outCoin-dropdown-content');
 
@@ -66,26 +64,7 @@ outCoinDropdownButton.addEventListener('click', function() {
     outCoinSvgIcon.classList.toggle('rotate');
 });
 
-
-// Connect metamask account
-async function connect() {
-    if (typeof window.ethereum !== "undefined") {
-    await ethereum.request({method: "eth_requestAccounts"})
-}
-}
-
-// Execute the contract
-async function execute () {
-    // the following are needed:
-    // "outCoin": the contract address of the coin the recipient wants.
-    // "outAmount": the amount of outCoin which the recipient is expecting.
-    // "inCoin": the contract address of the coin the sender wants to spend.
-    // "maxInAmount": the maximum amount of inCoin the user is willing to spend.
-    // "recipient": the address of the recipient who will recieve outAmount of outCoin.
-
-}
-
-// Change the 
+/* Change the blockchain network */
 const dropdownLinks = document.querySelectorAll('.dropdown-content a');
 
 dropdownLinks.forEach(link => {
@@ -114,9 +93,72 @@ function getChainId(network) {
     case "Polygon":
       return "0x89";
     case "Optimism":
-      return "10";
+      return "0xa869";
     default:
       return null;
   }
 }
-  
+
+/* Connect metamask account */
+async function connect() {
+    if (typeof window.ethereum !== "undefined") {
+    await ethereum.request({method: "eth_requestAccounts"})
+}
+}
+
+/* Calculated the coin quantity equal to the input GBP amount */
+let selectedCoin = "";
+let price;
+
+// Add event listener to dropdown button
+const dropdownBtn = document.querySelector(".inCoin-dropdown-content");
+dropdownBtn.addEventListener("click", function(event) {
+  // Get the selected coin from the clicked dropdown item
+  console.log(event.target);
+  if (event.target.tagName === "A") {
+    selectedCoin = event.target.getAttribute("data-network");
+    const apiUrl = `https://api.coingecko.com/api/v3/simple/price?ids=${selectedCoin}&vs_currencies=GBP`;
+
+    fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${selectedCoin}&vs_currencies=GBP`)
+      .then(response => response.json())
+      .then(data => {
+        price = data[selectedCoin].gbp;
+        console.log(price); // This will print the price in GBP to the console
+      })
+      .catch(error => console.error(error));
+        
+  }
+});
+fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${selectedCoin}&vs_currencies=GBP`)
+      .then(response => response.json())
+      .then(data => {
+        price = data[selectedCoin].gbp;
+        console.log(price); // This will print the price in GBP to the console
+      })
+      .catch(error => console.error(error));
+
+const gbpInput = document.querySelector("#transfer-gbp-value");
+const quantityLabel = document.querySelector("#quantity-label #transfer-quantity");
+
+gbpInput.addEventListener("input", () => {
+  const gbpValue = gbpInput.value;
+  const quantity = (gbpValue * 1.1) / price;
+  console.log(selectedCoin)
+  console.log(price)
+  quantityLabel.textContent = `${quantity.toFixed(6)}`;
+});
+
+
+
+
+
+/* Execute the contract */
+async function execute () {
+    // the following are needed:
+    // "outCoin": the contract address of the coin the recipient wants.
+    // "outAmount": the amount of outCoin which the recipient is expecting.
+    // "inCoin": the contract address of the coin the sender wants to spend.
+    // "maxInAmount": the maximum amount of inCoin the user is willing to spend.
+    // "recipient": the address of the recipient who will recieve outAmount of outCoin.
+
+}
