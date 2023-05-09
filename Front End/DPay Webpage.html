@@ -46,11 +46,7 @@
                 </li>
                 <li class="nav-item-right">
                     <script>
-                        async function connect() {
-                            if (typeof window.ethereum !== "undefined") {
-                                ethereum.request({ method: "eth_resquestAccounts" })
-                            }
-                        }
+                        
                     </script>
                     <button id="connectButton" onclick="connect()">Connect</button>
                 </li>

@@ -65,3 +65,11 @@ outCoinDropdownButton.addEventListener('click', function() {
     outCoinDropdownMenu.classList.toggle('show');
     outCoinSvgIcon.classList.toggle('rotate');
 });
+
+
+// Connect metamask account
+async function connect() {
+    if (typeof window.ethereum !== "undefined") {
+    ethereum.request({method: "eth_requestAccounts"})
+}
+}
