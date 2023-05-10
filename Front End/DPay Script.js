@@ -107,7 +107,7 @@ async function connect() {
 }
 
 /* Calculated the coin quantity equal to the input GBP amount */
-let selectedCoin = "ethereum";
+let selectedCoin = "";
 let price;
 
 // Add event listener to dropdown button
@@ -137,6 +137,7 @@ gbpInput.addEventListener("input", () => {
   const quantity = (gbpValue * 1.1) / price;
   quantityLabel.textContent = `${quantity.toFixed(6)} ${selectedSymbol}`;
 });
+
 
 
 /* Execute the contract */
