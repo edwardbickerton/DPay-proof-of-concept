@@ -1,5 +1,18 @@
+:root {
+    /* Neutral Colours*/
+    --grey-dark: #424242;
+    --grey-darker: #252525;
+
+    /* Dark Mode Colours*/
+    --pink-dark: #CC313D; /*E6007A*/
+    --pink-mid: #E6007A;
+    --pink-light: #F7C5CC;
+    --purple-dark: #11001C;
+    --purple-mid: #4F0147;
+}
+
 body {
-    background-color: #CCCCCC;
+    background: radial-gradient(100% 100% at 50% 0, var(--grey-darker) 0, var(--purple-dark) 100%);
 }
 
 * {
@@ -30,7 +43,7 @@ a {
 
 .head {
     width: 1500px;
-    background-color: #4F43AE;
+    background-color: black;
 }
 
 .head .title{
@@ -51,6 +64,7 @@ a {
 
 .box .title {
     height: 40px;
+    color: #DDDDDD;
 }
 
 .box .content li {
