@@ -108,6 +108,7 @@ async function connect() {
 
 /* Calculated the coin quantity equal to the input GBP amount */
 let selectedCoin = "";
+let selectedSymbol = "";
 let price;
 
 // Add event listener to dropdown button
@@ -124,19 +125,17 @@ dropdownBtn.addEventListener("click", function(event) {
       .then(data => {
         price = data[selectedCoin].gbp;
         console.log(price); // This will print the price in GBP to the console
+        
+        const gbpInput = document.querySelector("#transfer-gbp-value");
+        const quantityLabel = document.querySelector("#quantity-label #transfer-quantity");
+        const gbpValue = gbpInput.value;
+        const quantity = (gbpValue * 1.1) / price;
+        quantityLabel.textContent = `${quantity.toFixed(6)} ${selectedSymbol}`;
       })
       .catch(error => console.error(error));
   }
 });
 
-const gbpInput = document.querySelector("#transfer-gbp-value");
-const quantityLabel = document.querySelector("#quantity-label #transfer-quantity");
-
-gbpInput.addEventListener("input", () => {
-  const gbpValue = gbpInput.value;
-  const quantity = (gbpValue * 1.1) / price;
-  quantityLabel.textContent = `${quantity.toFixed(6)} ${selectedSymbol}`;
-});
 
 
 
