@@ -37,7 +37,7 @@ outCoinDropdownContent.addEventListener("click", function(event) {
     }
 });
 
-/* Network dropdown rotation */
+/* Network dropdown and arrow rotation */
 const dropdownButton = document.querySelector('.change-network');
 const dropdownMenu = document.querySelector('.dropdown-content');
 
@@ -46,13 +46,27 @@ dropdownButton.addEventListener('click', function() {
   svgIcon.classList.toggle('rotate');
 });
 
-/* inCoin dropdown rotation */
+document.addEventListener('click', function(event) {
+  if (!event.target.closest('.dropdown-content') && !event.target.closest('.change-network')) {
+    dropdownMenu.classList.remove('show');
+    svgIcon.classList.remove('rotate');
+  }
+});
+
+/* inCoin dropdown and arrow rotation */
 const inCoinDropdownButton = document.querySelector('.change-inCoin');
 const inCoinDropdownMenu = document.querySelector('.inCoin-dropdown-content');
 
 inCoinDropdownButton.addEventListener('click', function() {
     inCoinDropdownMenu.classList.toggle('show');
     inCoinSvgIcon.classList.toggle('rotate');
+});
+
+document.addEventListener('click', function(event) {
+  if (!event.target.closest('.inCoin-dropdown-content') && !event.target.closest('.change-inCoin')) {
+    inCoinDropdownMenu.classList.remove('show');
+    svgIcon.classList.remove('rotate');
+  }
 });
 
 /* outCoin dropdown rotation */
@@ -63,6 +77,13 @@ outCoinDropdownButton.addEventListener('click', function() {
     outCoinDropdownMenu.classList.toggle('show');
     outCoinSvgIcon.classList.toggle('rotate');
 });
+
+document.addEventListener('click', function(event) {
+  if (!event.target.closest('.outCoin-dropdown-content') && !event.target.closest('.change-outCoin')) {
+    outCoinDropdownMenu.classList.remove('show');
+    svgIcon.classList.remove('rotate');
+  }
+})
 
 /* Change the blockchain network */
 const dropdownLinks = document.querySelectorAll('.dropdown-content a');
@@ -98,6 +119,7 @@ function getChainId(network) {
       return null;
   }
 }
+
 
 /* Connect metamask account */
 async function connect() {
