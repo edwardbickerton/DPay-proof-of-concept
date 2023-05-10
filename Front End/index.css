@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(241, 238, 238);
+    background-color: #CCCCCC;
 }
 
 * {
@@ -26,6 +26,23 @@ a {
 .wrapper {
     width: 1200px;
     margin: 0 auto;
+}
+
+.head {
+    width: 1500px;
+    background-color: #4F43AE;
+}
+
+.head .title{
+    height: 80px;
+}
+
+.head .title li{
+    float: left;
+    margin-left: 40px;
+    margin-top: 20px;
+    font-size: 25px;
+    color: #DDDDDD;
 }
 
 .box {
