@@ -115,7 +115,8 @@ const dropdownBtn = document.querySelector(".inCoin-dropdown-content");
 dropdownBtn.addEventListener("click", function(event) {
   // Get the selected coin from the clicked dropdown item
   if (event.target.tagName === "A") {
-    selectedCoin = event.target.getAttribute("data-network");
+    selectedCoin = event.target.getAttribute("data-coin");
+    selectedSymbol = event.target.getAttribute("data-symbol");
     const apiUrl = `https://api.coingecko.com/api/v3/simple/price?ids=${selectedCoin}&vs_currencies=GBP`;
 
     fetch(apiUrl)
@@ -134,7 +135,7 @@ const quantityLabel = document.querySelector("#quantity-label #transfer-quantity
 gbpInput.addEventListener("input", () => {
   const gbpValue = gbpInput.value;
   const quantity = (gbpValue * 1.1) / price;
-  quantityLabel.textContent = `${quantity.toFixed(6)}`;
+  quantityLabel.textContent = `${quantity.toFixed(6)} ${selectedSymbol}`;
 });
 
 
