@@ -18,7 +18,7 @@ contract DPay {
         address inCoin, 
         uint256 maxInAmount,
         address recipient
-    ) external returns(uint256 inAmount) {
+    ) external {
 
         // sending inCoin to DPay
         TransferHelper.safeTransferFrom(inCoin, msg.sender, address(this), maxInAmount);
@@ -40,7 +40,7 @@ contract DPay {
             });
         
         // ammount of inCoin which got spent
-        inAmount = swapRouter.exactOutputSingle(params);
+        uint256 inAmount = swapRouter.exactOutputSingle(params);
 
         // revoking permission given to swapRouter
         TransferHelper.safeApprove(inCoin, address(swapRouter), 0);

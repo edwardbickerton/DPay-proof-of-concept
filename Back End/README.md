@@ -4,7 +4,14 @@
 
 ### DPay.sol
 
-The function `swapSend` has 5 parameters:
+The smart contract has two functions:
+
+1. `swapTokenSendToken` – takes in ERC20 tokens from the user, sends ERC20 tokens to the recipient.
+2. `swapEthSendToken` – takes in ETH from the user, sends ERC20 tokens to the recipient.
+
+#### `swapTokenSendToken`
+
+The function `swapTokenSendToken` has 5 parameters:
 
 1. `outCoin` the contract address of the coin the recipient wants.
 2. `outAmount` the amount<sup>1</sup> of `outCoin` which the recipient is expecting.
@@ -12,12 +19,24 @@ The function `swapSend` has 5 parameters:
 4. `maxInAmount` the maximum amount<sup>1</sup> of `inCoin` the user is willing to spend. (This could be omitted<sup>2</sup>)
 5. `recipient` the address of the recipient who will recieve `outAmount` of `outCoin`.
 
+#### `swapEthSendToken`
+
+Note: this function is `payable` and an appropriate amount of ETH (essentially `maxInAmount`) must be sent to get converted into `outCoin` for the recipient.
+
+WARNING: Any surplus ETH gets refunded as WETH not ETH.
+
+The function `swapEthSendToken` has 3 parameters:
+
+1. `outCoin` the contract address of the coin the recipient wants.
+2. `outAmount` the amount<sup>1</sup> of `outCoin` which the recipient is expecting.
+3. `recipient` the address of the recipient who will recieve `outAmount` of `outCoin`.
+
 1 - Be careful with specifying amounts, for example in `WETH9.sol` you'll see the word [wad](https://ethereum.stackexchange.com/questions/27101/what-does-wadstand-for) everywhere. So if `inCoin` is the contract address of WETH and you want `maxInAmount` to be 1 WETH you must put 1,000,000,000,000,000,000.
 
 2 - `maxInAmount` could be replaced with say
 
-```
-1.1x(outAmount x price_of_outCoin_denomenated_in_inCoin)
+```python
+1.1*(outAmount * price_of_outCoin_denomenated_in_inCoin)
 ```
 
 i.e. 10% over market price. (Note: the surplus gets refunded)
@@ -37,6 +56,8 @@ This is useful because;
 
 ## Testing
 
+WARNING: this section has not been updated since native ethereum support was added. However, it is left as is because it might still be helpful.
+
 ### Setup
 
 Taken from [uniswap guide](https://docs.uniswap.org/contracts/v3/guides/local-environment): "When building and testing integrations with on chain protocols, developers often hit a problem: the liquidity on the live chain is critical to thoroughly testing their code but testing against a live network like Mainnet can be extremely expensive."
@@ -47,7 +68,7 @@ Taken from [uniswap guide](https://docs.uniswap.org/contracts/v3/guides/local-en
 
 ### Contracts
 
-1. To interact with the WETH9 contract compile it but don't deploy it! Enter the contract address (0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2) of the actual live WETH9 contract on mainnet next to the button `At Address`.
+1. To interact with the WETH9 contract compile its interface but don't deploy it! Enter the contract address (0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2) of the actual live WETH9 contract on mainnet next to the button `At Address`.
 2. Compile and deploy TokenTools and DPay (you might need to change the compiler version).
 
 ### Test `swapSend`
