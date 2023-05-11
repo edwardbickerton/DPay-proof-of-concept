@@ -23,7 +23,7 @@ The function `swapTokenSendToken` has 5 parameters:
 
 Note: this function is `payable` and an appropriate amount of ETH (essentially `maxInAmount`) must be sent to get converted into `outCoin` for the recipient.
 
-WARNING: Any surplus ETH gets refunded as WETH not ETH (see [issue 18](https://github.com/rw19842/DPay-proof-of-concept/issues/18)).
+WARNING: Any surplus ETH gets refunded as WETH not ETH (see [issue 19](https://github.com/rw19842/DPay-proof-of-concept/issues/19)).
 
 The function `swapEthSendToken` has 3 parameters:
 
