@@ -4,7 +4,7 @@
 
 ### DPay.sol
 
-The function `swapSend` is has 5 parameters:
+The function `swapSend` has 5 parameters:
 
 1. `outCoin` the contract address of the coin the recipient wants.
 2. `outAmount` the amount<sup>1</sup> of `outCoin` which the recipient is expecting.
