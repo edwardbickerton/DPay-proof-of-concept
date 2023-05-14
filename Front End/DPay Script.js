@@ -1,3 +1,6 @@
+import { ethers } from "ethers";
+import { useState } from "react";
+
 /* Network dropdown menu */
 const dropdownContent = document.querySelector(".dropdown-content");
 const networkIcon = document.querySelector("#network-icon");
@@ -161,15 +164,118 @@ dropdownBtn.addEventListener("click", function(event) {
 });
 
 
-
+const [isConnected, setIsConnect] = useState(false);
+const [signer, setSigner] = useState();
 
 /* Execute the contract */
-async function execute () {
+async function execute() {
     // the following are needed:
     // "outCoin": the contract address of the coin the recipient wants.
     // "outAmount": the amount of outCoin which the recipient is expecting.
     // "inCoin": the contract address of the coin the sender wants to spend.
     // "maxInAmount": the maximum amount of inCoin the user is willing to spend.
     // "recipient": the address of the recipient who will recieve outAmount of outCoin.
-
+    if (typeof window.ethereum !== "undefined") {
+        const contractAddress = ""; // the address of contract
+        const abi = [
+            {
+                inputs: [
+                    {
+                        internalType: "string",
+                        name: "_name",
+                        type: "string",
+                    },
+                    {
+                        internalType: "uint256",
+                        name: "_favoriteNumber",
+                        type: "uint256",
+                    },
+                ],
+                name: "addPerson",
+                outputs: [],
+                stateMutability: "nonpayable",
+                type: "function",
+            },
+            {
+                inputs: [
+                    {
+                        internalType: "string",
+                        name: "",
+                        type: "string",
+                    },
+                ],
+                name: "nameToFavoriteNumber",
+                outputs: [
+                    {
+                        internalType: "uint256",
+                        name: "",
+                        type: "uint256",
+                    },
+                ],
+                stateMutability: "view",
+                type: "function",
+            },
+            {
+                inputs: [
+                    {
+                        internalType: "uint256",
+                        name: "",
+                        type: "uint256",
+                    },
+                ],
+                name: "people",
+                outputs: [
+                    {
+                        internalType: "uint256",
+                        name: "favoriteNumber",
+                        type: "uint256",
+                    },
+                    {
+                        internalType: "string",
+                        name: "name",
+                        type: "string",
+                    },
+                ],
+                stateMutability: "view",
+                type: "function",
+            },
+            {
+                inputs: [],
+                name: "retrieve",
+                outputs: [
+                    {
+                        internalType: "uint256",
+                        name: "",
+                        type: "uint256",
+                    },
+                ],
+                stateMutability: "view",
+                type: "function",
+            },
+            {
+                inputs: [
+                    {
+                        internalType: "uint256",
+                        name: "_favoriteNumber",
+                        type: "uint256",
+                    },
+                ],
+                name: "store",
+                outputs: [],
+                stateMutability: "nonpayable",
+                type: "function",
+            },
+        ];
+        const contract = new ethers.Contract(contractAddress, abi, signer);
+        try {
+            // address outCoin,
+            // uint256 outAmount,
+            // address recipient
+            await contract.swapEthSendToken("", 0.0, "");
+        } catch (error) {
+            console.log(error);
+        }
+    } else {
+        alert("Please install MetaMask")
+    }
 }
