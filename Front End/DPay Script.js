@@ -103,7 +103,9 @@ function getChainId(network) {
 async function connect() {
     if (typeof window.ethereum !== "undefined") {
     await ethereum.request({method: "eth_requestAccounts"})
-}
+    }else{
+        alert("You haven't get metamask installed, please install it on the web site!")
+    }
 }
 
 /* Calculated the coin quantity equal to the input GBP amount */
