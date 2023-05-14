@@ -37,7 +37,7 @@ outCoinDropdownContent.addEventListener("click", function(event) {
     }
 });
 
-/* Network dropdown rotation */
+/* Network dropdown and arrow rotation */
 const dropdownButton = document.querySelector('.change-network');
 const dropdownMenu = document.querySelector('.dropdown-content');
 
@@ -46,13 +46,27 @@ dropdownButton.addEventListener('click', function() {
   svgIcon.classList.toggle('rotate');
 });
 
-/* inCoin dropdown rotation */
+document.addEventListener('click', function(event) {
+  if (!event.target.closest('.dropdown-content') && !event.target.closest('.change-network')) {
+    dropdownMenu.classList.remove('show');
+    svgIcon.classList.remove('rotate');
+  }
+});
+
+/* inCoin dropdown and arrow rotation */
 const inCoinDropdownButton = document.querySelector('.change-inCoin');
 const inCoinDropdownMenu = document.querySelector('.inCoin-dropdown-content');
 
 inCoinDropdownButton.addEventListener('click', function() {
     inCoinDropdownMenu.classList.toggle('show');
     inCoinSvgIcon.classList.toggle('rotate');
+});
+
+document.addEventListener('click', function(event) {
+  if (!event.target.closest('.inCoin-dropdown-content') && !event.target.closest('.change-inCoin')) {
+    inCoinDropdownMenu.classList.remove('show');
+    svgIcon.classList.remove('rotate');
+  }
 });
 
 /* outCoin dropdown rotation */
@@ -63,6 +77,13 @@ outCoinDropdownButton.addEventListener('click', function() {
     outCoinDropdownMenu.classList.toggle('show');
     outCoinSvgIcon.classList.toggle('rotate');
 });
+
+document.addEventListener('click', function(event) {
+  if (!event.target.closest('.outCoin-dropdown-content') && !event.target.closest('.change-outCoin')) {
+    outCoinDropdownMenu.classList.remove('show');
+    svgIcon.classList.remove('rotate');
+  }
+})
 
 /* Change the blockchain network */
 const dropdownLinks = document.querySelectorAll('.dropdown-content a');
@@ -99,6 +120,7 @@ function getChainId(network) {
   }
 }
 
+
 /* Connect metamask account */
 async function connect() {
     if (typeof window.ethereum !== "undefined") {
@@ -109,7 +131,8 @@ async function connect() {
 }
 
 /* Calculated the coin quantity equal to the input GBP amount */
-let selectedCoin = "ethereum";
+let selectedCoin = "";
+let selectedSymbol = "";
 let price;
 
 // Add event listener to dropdown button
@@ -117,7 +140,8 @@ const dropdownBtn = document.querySelector(".inCoin-dropdown-content");
 dropdownBtn.addEventListener("click", function(event) {
   // Get the selected coin from the clicked dropdown item
   if (event.target.tagName === "A") {
-    selectedCoin = event.target.getAttribute("data-network");
+    selectedCoin = event.target.getAttribute("data-coin");
+    selectedSymbol = event.target.getAttribute("data-symbol");
     const apiUrl = `https://api.coingecko.com/api/v3/simple/price?ids=${selectedCoin}&vs_currencies=GBP`;
 
     fetch(apiUrl)
@@ -125,19 +149,18 @@ dropdownBtn.addEventListener("click", function(event) {
       .then(data => {
         price = data[selectedCoin].gbp;
         console.log(price); // This will print the price in GBP to the console
+        
+        const gbpInput = document.querySelector("#transfer-gbp-value");
+        const quantityLabel = document.querySelector("#quantity-label #transfer-quantity");
+        const gbpValue = gbpInput.value;
+        const quantity = (gbpValue * 1.1) / price;
+        quantityLabel.textContent = `${quantity.toFixed(6)} ${selectedSymbol}`;
       })
       .catch(error => console.error(error));
   }
 });
 
-const gbpInput = document.querySelector("#transfer-gbp-value");
-const quantityLabel = document.querySelector("#quantity-label #transfer-quantity");
 
-gbpInput.addEventListener("input", () => {
-  const gbpValue = gbpInput.value;
-  const quantity = (gbpValue * 1.1) / price;
-  quantityLabel.textContent = `${quantity.toFixed(6)}`;
-});
 
 
 /* Execute the contract */
