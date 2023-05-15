@@ -1,392 +1,149 @@
-/* Defining Variables*/
-:root {
-    /* Light Mode Colours */
-    --grey-1: #DDDDDD;
-    --grey-2: #CCCCCC;
-    --grey-4: #AAAAAA;
-    --grey-6: #888888;
-    --blue-vlight: #C6C7F5;
-    --blue-light: #B5B6E4;
-    --blue-mid: #666699;
-    --blue-dark: #4F43AE;
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>DPay Online Store</title>
+        <meta charset="utf-8">
+        <meta name="description" content="Corresponding Online stores for DPay application">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <link rel="stylesheet" href="C:\Users\yangy\Desktop\code\Test\CSS\index.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source Sans Pro">
+    </head>
 
-    /* Neutral Colours*/
-    --grey-dark: #424242;
-    --grey-darker: #252525;
+    <body style="overflow: visible;">
+        <!-- Navigation -->
+        <nav id="navbar" class="navbar">
+            <ul class="nav-list">
+                <li class="nav-item-left"><a href="#Online-Store">DPay Online Store</a></li>
+                <li class="nav-item-left"><a href="#tokens-section">Coins We Accept</a></li>
+            </ul>
+        </nav>
 
-    /* Dark Mode Colours*/
-    --pink-dark: #CC313D; /*E6007A*/
-    --pink-mid: #E6007A;
-    --pink-light: #F7C5CC;
-    --purple-dark: #11001C;
-    --purple-mid: #4F0147;
-}
-  
-/* Clean Slate */
-body, html {
-    margin: 0;
-    padding: 0;
-}
+        <main>
+            <div id="Online-Store" class="Online-Store">
+                <div class="title">
+                    <h2>Featured Products</h2>
+                </div>
+        
+                <div class="content">
+                    <ul>
+                        <li>
+                            <a href="file:///C:/Users/yangy/Desktop/code/Test/Goods1.html">
+                                <img src="C:\Users\yangy\Desktop\code\Test\images\Apple.jpg" alt="">
+                                <h3>Juicy Apple</h3>
+                                <p><span>BTC 0.0002</span></p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="C:\Users\yangy\Desktop\code\Test\images\Banana.jpg" alt="">
+                                <h3>Juicy Apple</h3>
+                                <p><span>￡5</span></p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="C:\Users\yangy\Desktop\code\Test\images\Apple.jpg" alt="">
+                                <h3>Apple</h3>
+                                <p><span>￡5</span></p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="C:\Users\yangy\Desktop\code\Test\images\Apple.jpg" alt="">
+                                <h3>Apple</h3>
+                                <p><span>￡5</span></p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="C:\Users\yangy\Desktop\code\Test\images\Apple.jpg" alt="">
+                                <h3>Apple</h3>
+                                <p><span>￡5</span></p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="C:\Users\yangy\Desktop\code\Test\images\Apple.jpg" alt="">
+                                <h3>Apple</h3>
+                                <p><span>￡5</span></p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="C:\Users\yangy\Desktop\code\Test\images\Apple.jpg"" alt="">
+                                <h3>Apple</h3>
+                                <p><span>￡5</span></p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="C:\Users\yangy\Desktop\code\Test\images\Apple.jpg" alt="">
+                                <h3>Apple</h3>
+                                <p><span>￡5</span></p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="C:\Users\yangy\Desktop\code\Test\images\Apple.jpg" alt="">
+                                <h3>Apple</h3>
+                                <p><span>￡5</span></p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="C:\Users\yangy\Desktop\code\Test\images\Apple.jpg" alt="">
+                                <h3>Apple</h3>
+                                <p><span>￡5</span></p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </main>
 
-/* Fonts */
-* {
-    font-family: Montserrat, "Source Sans Pro", sans-serif;
-    box-sizing: border-box
-}
-
-html {
-    font-size: 16px;
-    font-variant: none;
-    font-smooth: always;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-tap-highlight-color: transparent;
-    scroll-behavior: smooth;
-    transition-duration: 0.5s;
-}
-
-/* DARK MODE COLOUR SCHEME */
-@media (prefers-color-scheme: dark) {
-    html {
-        background: radial-gradient(100% 100% at 50% 0, var(--grey-darker) 0, var(--purple-dark) 100%);
-    }
-    .navbar,
-    .tokens-section {
-        background: var(--grey-darker);
-        color: white;
-    }
-    a {
-        text-decoration: none;
-        color: white;
-    }
-    .clearfix:before,.clearfix:after {
-        content: "";
-        display: table;
-      }
-      .clearfix:after {
-        clear: both;
-      }
-    .dropdown-content,
-    .inCoin-dropdown-content,
-    .outCoin-dropdown-content {
-        background: var(--grey-dark);
-    }
-    .dropdown-content a,
-    .inCoin-dropdown-content a,
-    .outCoin-dropdown-content a {
-        color: white;
-    }
-    .dropdown-content a:hover,
-    .inCoin-dropdown-content a:hover,
-    .outCoin-dropdown-content a:hover {
-        background-color: var(--pink-mid);
-    }
-    .change-network {
-        background-color: transparent;
-    }
-    .change-inCoin,
-    .change-outCoin {
-        background-color: var(--pink-mid);
-    }
-    #payment-details button,
-    #connectButton,
-    .dropdown-content,
-    .inCoin-dropdown-content,
-    .outCoin-dropdown-content,
-    input[type="text"],
-    input[type="number"]{
-        border: 1px solid black;
-        box-shadow: 5px 5px 0px 0px var(--grey-4);
-    }
-    input[type="text"]:focus,
-    input[type="number"]:focus {
-        border-color: var(--pink-mid);
-        box-shadow: 5px 5px 4px 0px var(--pink-mid);
-    }
-    .Online-Store {
-        background-color: var(--grey-dark);
-    }
-    ::-webkit-scrollbar-thumb {
-        background-color: var(--pink-mid);
-    }
-    ::-webkit-scrollbar-thumb:hover {
-        background-color: var(--pink-dark);
-    }
-    ::-webkit-scrollbar-track {
-        background-color: var(--pink-light);
-    }
-    footer {
-        color: white;
-    }
-    .github-link {
-        color: var(--pink-mid);
-    }
-    #dropdown-icon,
-    #inCoin-dropdown-icon,
-    #outCoin-dropdown-icon {
-        stroke: white;
-    }
-}
-
-/* LIGHT MODE COLOUR SCHEME */
-@media (prefers-color-scheme: light) {
-    html {
-        background: radial-gradient(100% 100% at 50% 0, var(--grey-1) 0, var(--grey-6) 100%), white
-    }
-    .navbar,
-    .tokens-section,
-    #payment-details > button,
-    ::-webkit-scrollbar-track {
-        background: darkblue;
-        color: var(--grey-1);
-    }
-    a,
-    #payment-details button {
-        text-decoration: none;
-        color: var(--grey-1);
-    }
-    .dropdown-content,
-    .inCoin-dropdown-content,
-    .outCoin-dropdown-content {
-        background: var(--grey-2);
-    }
-    .dropdown-content a,
-    .inCoin-dropdown-content a,
-    .outCoin-dropdown-content a {
-        color: var(--grey-darker);
-    }
-    .dropdown-content a:hover,
-    .inCoin-dropdown-content a:hover,
-    .outCoin-dropdown-content a:hover {
-        background-color: var(--blue-light);
-    }
-    .change-network,
-    .change-inCoin,
-    .change-outCoin {
-        background-color: transparent;
-    }
-    #payment-details button,
-    .dropdown-content,
-    .Online-Store,
-    .inCoin-dropdown-content,
-    .outCoin-dropdown-content,
-    input[type="text"],
-    input[type="number"]{
-        border: 1px solid black;
-        box-shadow: 5px 5px 0px 0px var(--grey-darker);
-    }
-    input[type="text"]:focus,
-    input[type="number"]:focus {
-        border-color: darkblue;
-        box-shadow: 5px 5px 4px 0px darkblue;
-    }
-    ::-webkit-scrollbar-thumb {
-        background-color: var(--grey-6);
-    }
-    ::-webkit-scrollbar-thumb:hover {
-        background-color: var(--grey-4);
-    }
-    footer {
-        background-color: var(--grey-2);
-        color: var(--grey-darker);
-    }
-    .github-link {
-        color: darkblue;
-    }
-    #dropdown-icon {
-        stroke: white;
-    }
-    #inCoin-dropdown-icon,
-    #outCoin-dropdown-icon {
-        stroke: darkblue;
-    }
-}
-
-/* Gradient */
-#background-radial-gradient {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    pointer-events: none;
-    width: 200vw;
-    height: 200vh;
-    z-index: -1
-}
-
-#root,
-body,
-html {
-    min-height: 100%
-}
-
-/* Styling and Arranging Navigation Bar*/
-.nav-list {
-  display: flex;
-  justify-content: space-between;
-  margin: 0 2rem 0 0;
-  list-style: none;
-  padding: 0;
-  align-items: center;
-}
-
-.nav-item-left:nth-child(2) {
-    margin-right: auto;
-}
-  
-.nav-item-right:nth-child(2) {
-    margin-left: auto;
-}
-
-.navbar ul {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.navbar li {
-    margin: 0 10px;
-    position: relative;
-    padding: 20px;
-}
-
-@media (max-width: 28.75em) {
-    .navbar {
-      flex-direction: column;
-      align-items: center;
-    }
-    
-    .nav-list {
-      margin-top: 1rem;
-    }
-    
-    .nav-item-right {
-      margin-left: 0;
-      margin-top: 1rem;
-    }
-}
-
-.navbar a {
-    padding: 20px;
-    text-align: center;
-}
-
-.nav-list a:not(.dropdown-content a):hover {
-    transform: translate3D(2px, 2px, 0);
-}
-
-/* main*/
-#Online-Store {
-    margin-top: 15px;
-    width: auto;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-  
-.title {
-    height: 40px;
-    color: black;
-}
-
-.content {
-    font-size: 0;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.content li {
-    display: inline-block;
-    border: 1px solid black;
-    max-width: 100%;
-    height: 100%;
-    background-color: white;
-    list-style-type: none;
-    align-items: center;
-    box-sizing: border-box;
-}
-
-.content li:nth-child(5n) {
-    margin-right: 0;
-}
-
-
-.content li h3 {
-    font-size: 14px;
-    color: black;
-    text-align: left;
-}
-
-.content li p {
-    color: orange;
-    font-size: 18px;
-    text-align: left;
-}
-
-
-/* Accepted Coins Secion */
-.tokens-section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    width: 100%;
-    height: 80vh;
-    padding: 0 rem;
-}
-  
-.tokens-section h2 {
-    font-size: 2rem;
-}
-  
-.tokens-section p {
-    font-size: 1.6rem;
-}
-  
-.tokens-links {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    max-width: 980px;
-    margin-top: 4rem;
-    flex-wrap: wrap;
-}
-  
-.coin-link-icon {
-    height: 80px;
-    margin: 50px;
-    transition: transform 0.3s ease;
-}
-
-/* Footer */
-footer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    padding: 60px;
-}
-
-.footer-item-left {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 10px;
-}
-  
-.footer-item-right {
-    width: 100%;
-    text-align: center;
-    margin-top: 10px;
-}
-  
-.github-link {
-    font-size: 2rem;
-}
-
-.footer-item-right {
-    transition: transform 0.3s ease;
-}
+        <section id="tokens-section" class="tokens-section">
+            <div class="tokens-header">
+              <h2>Tokens we are currently accepting</h2>
+              <p>Click the icons for additional info</p>
+            </div>
+            <div class="tokens-links">
+                <a href="https://ethereum.org/en/eth/" id="token-link" class="token-details">
+                    <img src="https://cdn.cdnlogo.com/logos/e/81/ethereum-eth.svg" alt="Ethereum" class="coin-link-icon">
+                </a>
+                <a href="https://tether.to/en/transparency/" id="token-link" class="token-details">
+                    <img src="https://cryptologos.cc/logos/tether-usdt-logo.svg?v=024" alt="Tether" class="coin-link-icon">
+                </a>
+                <a href="https://www.circle.com/en/usdc" id="token-link" class="token-details">
+                    <img src="https://cryptologos.cc/logos/usd-coin-usdc-logo.svg?v=024" alt="USD Coin" class="coin-link-icon">
+                </a>
+                <a href="https://www.binance.com/en/bnb" id="token-link" class="token-details">
+                    <img src="https://cryptologos.cc/logos/bnb-bnb-logo.svg?v=024" alt="Binance Coin" class="coin-link-icon">
+                </a>
+                <a href="https://wbtc.network" id="token-link" class="token-details">
+                    <img src="https://altcoinsbox.com/wp-content/uploads/2023/01/wbtc-wrapped-bitcoin-logo.png" alt="Wrapped Bitcoin" class="coin-link-icon">
+                </a>
+                <a href="https://polygon.technology/matic-token" id="token-link" class="token-details">
+                    <img src="https://cdn.iconscout.com/icon/free/png-512/free-polygon-token-4086725-3379855.png?f=avif&w=256" alt="Polygon" class="coin-link-icon">
+                </a>
+                <a href="https://www.shibatoken.com" id="token-link" class="token-details">
+                    <img src="https://cryptologos.cc/logos/shiba-inu-shib-logo.svg?v=024" alt="Shiba Inu" class="coin-link-icon">
+                </a>
+                <a href="https://ethereum.org/en/developers/docs/standards/tokens/erc-20/" id="token-link" class="token-details">
+                    <img src="https://cryptologos.cc/logos/ethereum-eth-logo.svg?v=025" alt="ERC-20 Tokens" class="coin-link-icon">
+                </a>
+            </div>
+          </section>
+          <footer>
+            <div class="footer-item-left">
+                <p>University of Bristol, Financial Technology Group Project 2023, Group 14</p>
+            </div>
+            <div class="footer-item-right">
+                <a href="https://github.com/rw19842/DPay-proof-of-concept" id="github-link" class="github-link">
+                    <i class="fab fa-github"></i> Our GitHub
+                </a>
+            </div>
+          </footer>
+    </body>
+</html>
