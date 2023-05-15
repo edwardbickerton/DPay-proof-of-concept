@@ -117,7 +117,11 @@ function getChainId(network) {
     case "Polygon":
       return "0x89";
     case "Optimism":
-      return "0xa869";
+      return "0xA";
+    case "Arbitrum One":
+      return "0xA4B1"
+    case "Celo Mainnet":
+      return "0xA4EC";
     default:
       return null;
   }
