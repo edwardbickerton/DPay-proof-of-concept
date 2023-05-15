@@ -1,4 +1,15 @@
+/* Defining Variables*/
 :root {
+    /* Light Mode Colours */
+    --grey-1: #DDDDDD;
+    --grey-2: #CCCCCC;
+    --grey-4: #AAAAAA;
+    --grey-6: #888888;
+    --blue-vlight: #C6C7F5;
+    --blue-light: #B5B6E4;
+    --blue-mid: #666699;
+    --blue-dark: #4F43AE;
+
     /* Neutral Colours*/
     --grey-dark: #424242;
     --grey-darker: #252525;
@@ -10,83 +21,372 @@
     --purple-dark: #11001C;
     --purple-mid: #4F0147;
 }
-
-body {
-    background: radial-gradient(100% 100% at 50% 0, var(--grey-darker) 0, var(--purple-dark) 100%);
-}
-
-* {
+  
+/* Clean Slate */
+body, html {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
-li {
+/* Fonts */
+* {
+    font-family: Montserrat, "Source Sans Pro", sans-serif;
+    box-sizing: border-box
+}
+
+html {
+    font-size: 16px;
+    font-variant: none;
+    font-smooth: always;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+    transition-duration: 0.5s;
+}
+
+/* DARK MODE COLOUR SCHEME */
+@media (prefers-color-scheme: dark) {
+    html {
+        background: radial-gradient(100% 100% at 50% 0, var(--grey-darker) 0, var(--purple-dark) 100%);
+    }
+    .navbar,
+    .tokens-section {
+        background: var(--grey-darker);
+        color: white;
+    }
+    a {
+        text-decoration: none;
+        color: white;
+    }
+    .clearfix:before,.clearfix:after {
+        content: "";
+        display: table;
+      }
+      .clearfix:after {
+        clear: both;
+      }
+    .dropdown-content,
+    .inCoin-dropdown-content,
+    .outCoin-dropdown-content {
+        background: var(--grey-dark);
+    }
+    .dropdown-content a,
+    .inCoin-dropdown-content a,
+    .outCoin-dropdown-content a {
+        color: white;
+    }
+    .dropdown-content a:hover,
+    .inCoin-dropdown-content a:hover,
+    .outCoin-dropdown-content a:hover {
+        background-color: var(--pink-mid);
+    }
+    .change-network {
+        background-color: transparent;
+    }
+    .change-inCoin,
+    .change-outCoin {
+        background-color: var(--pink-mid);
+    }
+    #payment-details button,
+    #connectButton,
+    .dropdown-content,
+    .inCoin-dropdown-content,
+    .outCoin-dropdown-content,
+    input[type="text"],
+    input[type="number"]{
+        border: 1px solid black;
+        box-shadow: 5px 5px 0px 0px var(--grey-4);
+    }
+    input[type="text"]:focus,
+    input[type="number"]:focus {
+        border-color: var(--pink-mid);
+        box-shadow: 5px 5px 4px 0px var(--pink-mid);
+    }
+    .Online-Store {
+        background-color: var(--grey-dark);
+    }
+    ::-webkit-scrollbar-thumb {
+        background-color: var(--pink-mid);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: var(--pink-dark);
+    }
+    ::-webkit-scrollbar-track {
+        background-color: var(--pink-light);
+    }
+    footer {
+        color: white;
+    }
+    .github-link {
+        color: var(--pink-mid);
+    }
+    #dropdown-icon,
+    #inCoin-dropdown-icon,
+    #outCoin-dropdown-icon {
+        stroke: white;
+    }
+}
+
+/* LIGHT MODE COLOUR SCHEME */
+@media (prefers-color-scheme: light) {
+    html {
+        background: radial-gradient(100% 100% at 50% 0, var(--grey-1) 0, var(--grey-6) 100%), white
+    }
+    .navbar,
+    .tokens-section,
+    #payment-details > button,
+    ::-webkit-scrollbar-track {
+        background: darkblue;
+        color: var(--grey-1);
+    }
+    a,
+    #payment-details button {
+        text-decoration: none;
+        color: var(--grey-1);
+    }
+    .dropdown-content,
+    .inCoin-dropdown-content,
+    .outCoin-dropdown-content {
+        background: var(--grey-2);
+    }
+    .dropdown-content a,
+    .inCoin-dropdown-content a,
+    .outCoin-dropdown-content a {
+        color: var(--grey-darker);
+    }
+    .dropdown-content a:hover,
+    .inCoin-dropdown-content a:hover,
+    .outCoin-dropdown-content a:hover {
+        background-color: var(--blue-light);
+    }
+    .change-network,
+    .change-inCoin,
+    .change-outCoin {
+        background-color: transparent;
+    }
+    #payment-details button,
+    .dropdown-content,
+    .Online-Store,
+    .inCoin-dropdown-content,
+    .outCoin-dropdown-content,
+    input[type="text"],
+    input[type="number"]{
+        border: 1px solid black;
+        box-shadow: 5px 5px 0px 0px var(--grey-darker);
+    }
+    input[type="text"]:focus,
+    input[type="number"]:focus {
+        border-color: darkblue;
+        box-shadow: 5px 5px 4px 0px darkblue;
+    }
+    ::-webkit-scrollbar-thumb {
+        background-color: var(--grey-6);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: var(--grey-4);
+    }
+    footer {
+        background-color: var(--grey-2);
+        color: var(--grey-darker);
+    }
+    .github-link {
+        color: darkblue;
+    }
+    #dropdown-icon {
+        stroke: white;
+    }
+    #inCoin-dropdown-icon,
+    #outCoin-dropdown-icon {
+        stroke: darkblue;
+    }
+}
+
+/* Gradient */
+#background-radial-gradient {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+    width: 200vw;
+    height: 200vh;
+    z-index: -1
+}
+
+#root,
+body,
+html {
+    min-height: 100%
+}
+
+/* Styling and Arranging Navigation Bar*/
+.nav-list {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 2rem 0 0;
+  list-style: none;
+  padding: 0;
+  align-items: center;
+}
+
+.nav-item-left:nth-child(2) {
+    margin-right: auto;
+}
+  
+.nav-item-right:nth-child(2) {
+    margin-left: auto;
+}
+
+.navbar ul {
+    display: flex;
     list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar li {
+    margin: 0 10px;
+    position: relative;
+    padding: 20px;
+}
+
+@media (max-width: 28.75em) {
+    .navbar {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .nav-list {
+      margin-top: 1rem;
+    }
+    
+    .nav-item-right {
+      margin-left: 0;
+      margin-top: 1rem;
+    }
+}
+
+.navbar a {
+    padding: 20px;
     text-align: center;
 }
-a {
-    text-decoration: none;
-}
-.clearfix:before,.clearfix:after {
-    content: "";
-    display: table;
-  }
-  .clearfix:after {
-    clear: both;
-  }
 
-.wrapper {
-    width: 1200px;
+.nav-list a:not(.dropdown-content a):hover {
+    transform: translate3D(2px, 2px, 0);
+}
+
+/* main*/
+#Online-Store {
+    margin-top: 15px;
+    width: auto;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-
-.head {
-    width: 1500px;
-    background-color: black;
-}
-
-.head .title{
-    height: 80px;
-}
-
-.head .title li{
-    float: left;
-    margin-left: 40px;
-    margin-top: 20px;
-    font-size: 25px;
-    color: #DDDDDD;
-}
-
-.box {
-    margin-top: 35px;
-}
-
-.box .title {
+  
+.title {
     height: 40px;
-    color: #DDDDDD;
-}
-
-.box .content li {
-    float: left;
-    margin-right: 15px;
-    margin-bottom: 25px;
-    width: 228px;
-    height: 270px;
-    background-color: white;
-}
-
-.box .content li:nth-child(5n) {
-    margin-right: 0;
-}
-
-.box .content li h3 {
-    padding: 6px;
-    font-size: 14px;
     color: black;
 }
 
-.box .content li p {
+.content {
+    font-size: 0;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.content li {
+    display: inline-block;
+    border: 1px solid black;
+    max-width: 100%;
+    height: 100%;
+    background-color: white;
+    list-style-type: none;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.content li:nth-child(5n) {
+    margin-right: 0;
+}
+
+
+.content li h3 {
+    font-size: 14px;
+    color: black;
+    text-align: left;
+}
+
+.content li p {
     color: orange;
     font-size: 18px;
+    text-align: left;
+}
+
+
+/* Accepted Coins Secion */
+.tokens-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 80vh;
+    padding: 0 rem;
+}
+  
+.tokens-section h2 {
+    font-size: 2rem;
+}
+  
+.tokens-section p {
+    font-size: 1.6rem;
+}
+  
+.tokens-links {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 980px;
+    margin-top: 4rem;
+    flex-wrap: wrap;
+}
+  
+.coin-link-icon {
+    height: 80px;
+    margin: 50px;
+    transition: transform 0.3s ease;
+}
+
+/* Footer */
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 60px;
+}
+
+.footer-item-left {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+  
+.footer-item-right {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+}
+  
+.github-link {
+    font-size: 2rem;
+}
+
+.footer-item-right {
+    transition: transform 0.3s ease;
 }
