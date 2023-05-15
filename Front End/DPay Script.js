@@ -1,3 +1,6 @@
+import { ethers } from "ethers";
+import { useState } from "react";
+
 /* Network dropdown menu */
 const dropdownContent = document.querySelector(".dropdown-content");
 const networkIcon = document.querySelector("#network-icon");
