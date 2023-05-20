@@ -21,5 +21,5 @@ button24.addEventListener("click", function() {
 
 function changeLink(value) {
   var link = document.getElementById('myLink');
-  buyLink.href = "../Front End/Dpay.html?var1=value1&var2=" + value;
+  buyLink.href = "../Front End/Dpay Webpage.html?var1=value1&var2=" + value;
 }
