@@ -128,7 +128,7 @@ function getChainId(network) {
 }
 
 
-/* Connect metamask account */
+// Connect metamask account
 async function connect() {
     if (typeof window.ethereum !== "undefined") {
     await ethereum.request({method: "eth_requestAccounts"})
@@ -137,37 +137,94 @@ async function connect() {
     }
 }
 
-/* Calculated the coin quantity equal to the input GBP amount */
-let selectedCoin = "";
-let selectedSymbol = "";
-let price;
+// Defining variables for quantity calculations
+let selectedInCoin = "";
+let selectedInSymbol = "";
+let inCoinPrice;
 
-// Add event listener to dropdown button
-const dropdownBtn = document.querySelector(".inCoin-dropdown-content");
-dropdownBtn.addEventListener("click", function(event) {
+let selectedOutCoin = "";
+let selectedOutSymbol = "";
+let outCoinPrice;
+
+// Function to calculate the inCoin quantity based on the specified outCoin quantity
+function calculateInCoinQuantity(outCoinQuantity) {
+  return (outCoinQuantity * outCoinPrice * 1.1) / inCoinPrice;
+}
+
+// Add event listener to inCoin dropdown button
+const inDropdownBtn = document.querySelector(".inCoin-dropdown-content");
+inDropdownBtn.addEventListener("click", function(event) {
   // Get the selected coin from the clicked dropdown item
   if (event.target.tagName === "A") {
-    selectedCoin = event.target.getAttribute("data-coin");
-    selectedSymbol = event.target.getAttribute("data-symbol");
-    const apiUrl = `https://api.coingecko.com/api/v3/simple/price?ids=${selectedCoin}&vs_currencies=GBP`;
-
+    selectedInCoin = event.target.getAttribute("data-inCoin");
+    selectedInSymbol = event.target.getAttribute("data-inSymbol");
+    let apiUrl = `https://api.coingecko.com/api/v3/simple/price?ids=${selectedInCoin}&vs_currencies=GBP`;
     fetch(apiUrl)
       .then(response => response.json())
       .then(data => {
-        price = data[selectedCoin].gbp;
-        console.log(price); // This will print the price in GBP to the console
-        
-        const gbpInput = document.querySelector("#transfer-gbp-value");
-        const quantityLabel = document.querySelector("#quantity-label #transfer-quantity");
-        const gbpValue = gbpInput.value;
-        const quantity = (gbpValue * 1.1) / price;
-        quantityLabel.textContent = `${quantity.toFixed(6)} ${selectedSymbol}`;
+        inCoinPrice = data[selectedInCoin].gbp;
+        console.log(inCoinPrice); // This will print the price in GBP to the console
+
+        // Calculate the inCoin quantity if the outCoin price is available
+        if (outCoinPrice) {
+          const outCoinQuantity = parseFloat(document.querySelector("#outCoin-transfer-quantity").value);
+          const inCoinQuantity = calculateInCoinQuantity(outCoinQuantity);
+          const quantityLabel = document.querySelector("#inCoin-quantity-label #inCoin-transfer-quantity");
+          if (!isNaN(inCoinQuantity)) {
+            quantityLabel.textContent = `${inCoinQuantity.toFixed(6)} ${selectedInSymbol}`;
+          } else {
+            quantityLabel.textContent = "";
+          }
+        }
       })
       .catch(error => console.error(error));
   }
 });
 
+// Add event listener to outCoin dropdown button
+const outDropdownBtn = document.querySelector(".outCoin-dropdown-content");
+outDropdownBtn.addEventListener("click", function(event) {
+  // Get the selected coin from the clicked dropdown item
+  if (event.target.tagName === "A") {
+    selectedOutCoin = event.target.getAttribute("data-outCoin");
+    selectedOutSymbol = event.target.getAttribute("data-outSymbol");
+    let apiUrl = `https://api.coingecko.com/api/v3/simple/price?ids=${selectedOutCoin}&vs_currencies=GBP`;
+    fetch(apiUrl)
+      .then(response => response.json())
+      .then(data => {
+        outCoinPrice = data[selectedOutCoin].gbp;
+        console.log(outCoinPrice); // This will print the price in GBP to the console
 
+        // Calculate the inCoin quantity if the inCoin price is available
+        if (inCoinPrice) {
+          const outCoinQuantity = parseFloat(document.querySelector("#outCoin-transfer-quantity").value);
+          const inCoinQuantity = calculateInCoinQuantity(outCoinQuantity);
+          const quantityLabel = document.querySelector("#inCoin-quantity-label #inCoin-transfer-quantity");
+          if (!isNaN(inCoinQuantity)) {
+            quantityLabel.textContent = `${inCoinQuantity.toFixed(6)} ${selectedInSymbol}`;
+          } else {
+            quantityLabel.textContent = "";
+          }
+        }
+      })
+      .catch(error => console.error(error));
+  }
+});
+
+// Function to handle input change in the outCoin quantity and dynamically update quantity
+const outCoinInput = document.querySelector("#outCoin-transfer-quantity");
+outCoinInput.addEventListener("input", function() {
+  const outCoinQuantity = parseFloat(outCoinInput.value);
+  const inCoinQuantity = calculateInCoinQuantity(outCoinQuantity);
+  const quantityLabel = document.querySelector("#inCoin-quantity-label #inCoin-transfer-quantity");
+  if (!isNaN(inCoinQuantity)) {
+    quantityLabel.textContent = `${inCoinQuantity.toFixed(6)} ${selectedInSymbol}`;
+  } else {
+    quantityLabel.textContent = "";
+  }
+});
+
+//
 const [isConnected, setIsConnect] = useState(false);
 const [signer, setSigner] = useState();
 
