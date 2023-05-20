@@ -288,26 +288,38 @@ html {
     align-items: center;
 }
   
-.left-content{
+.left-content {
     width: 500px;
-    height: 500px;
-    background-color: white;
+    height: 488px;
 }
 
-.right-content{
+.right-content {
     width: 700px;
     height: 500px;
-    background-color: lightblue;
 }
 
-.left-content .img {
-    width: 100%;
+#p_head {
+    font-weight: 700;
+    font-size: 20px;
+}
+
+#p_size {
+    font-weight: 700;
+    margin-right: 10px;
+}
+
+#appleImage {
+    width: 500px;
+    height: 488px;
 }
 
 .right-content .separator {
     height: 1px;
     background-color: #000;
-    margin: 10px 0;
+}
+
+#apple12 {
+    margin-right: 20px;
 }
 
 #tableContainer {
@@ -315,8 +327,34 @@ html {
     align-items: center;
 }
 
+#table {
+    margin-bottom: 10px;
+}
+
+th {
+    text-align: left;
+}
+
+th, td{
+    padding-right: 20px;
+}
+
+#listcontainer ul {
+    margin-bottom: 10px;
+}
+
 #listcontainer li {
     list-style: disc;
+}
+
+#p_buy {
+    font-weight: 500;
+    font-size: 14px;
+}
+
+#buy {
+    font-size: 25px;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 /* Accepted Coins Secion */
