@@ -301,7 +301,7 @@ html {
 .content li {
     display: inline-block;
     border: 1px solid black;
-    max-width: 100%;
+    width: 257px;
     height: 100%;
     background-color: white;
     list-style-type: none;
@@ -313,14 +313,22 @@ html {
     margin-right: 0;
 }
 
+.content img {
+    margin-top: 5px;
+    margin-left: 25px;
+    width: 210px;
+    height: 210px;
+}
 
 .content li h3 {
+    margin-left: 10px;
     font-size: 14px;
     color: black;
     text-align: left;
 }
 
 .content li p {
+    margin-left: 6px;
     color: orange;
     font-size: 18px;
     text-align: left;
