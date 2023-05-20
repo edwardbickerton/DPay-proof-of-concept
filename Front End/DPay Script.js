@@ -1,4 +1,4 @@
-/* get the value */
+/* get the parameter */
 let params = new URLSearchParams(window.location.search);
 let goods_type = params.get('var1');
 let goods_price = params.get('var2'); 
