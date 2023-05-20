@@ -137,7 +137,7 @@ async function connect() {
     }
 }
 
-// Defining variables for quantity calculations
+// Defining variables for quantity calculationss
 let selectedInCoin = "";
 let selectedInSymbol = "";
 let inCoinPrice;
