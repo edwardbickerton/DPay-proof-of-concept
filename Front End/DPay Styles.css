@@ -449,7 +449,7 @@ html {
     }
 }
 
-#transfer-gbp-value,
+#outCoin-transfer-quantity,
 #recipient {
     margin: 10px 0 0 0;
     width: 100%;

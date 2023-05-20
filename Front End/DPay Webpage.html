@@ -38,8 +38,14 @@
                             <a href="#empty" data-network="Polygon">
                                 <img src="https://cdn.iconscout.com/icon/free/png-512/free-polygon-token-4086725-3379855.png?f=avif&w=256" alt="Polygon" class="dropdown-icon">Polygon Mainnet
                             </a>
-                            <a href="#empty" data-network="Optimism" onclick="switchToOptimism()">
+                            <a href="#empty" data-network="Optimism">
                                 <img src="https://cryptologos.cc/logos/optimism-ethereum-op-logo.svg?v=024" alt="Optimism" class="dropdown-icon">Optimism
+                            </a>
+                            <a href="#empty" data-network="Arbitrum One"">
+                                <img src="https://cryptologos.cc/logos/arbitrum-arb-logo.svg?v=025" alt="Arbitrum One" class="dropdown-icon">Arbitrum One
+                            </a>
+                            <a href="#empty" data-network="Celo Mainnet">
+                                <img src="https://cryptologos.cc/logos/celo-celo-logo.svg?v=025" alt="Celo Mainnet" class="dropdown-icon">Celo Mainnet
                             </a>
                         </div>
                     </div>
@@ -71,28 +77,28 @@
                             </button>
                             <div class="inCoin-dropdown-content">
                                 <!-- #empty is just a placeholder until contract links are figured out-->
-                                <a href="#empty" data-coin="ethereum" data-symbol="ETH">
+                                <a href="#empty" data-inCoin="ethereum" data-inSymbol="ETH">
                                     <img src="https://cdn.cdnlogo.com/logos/e/81/ethereum-eth.svg" alt="Ethereum" class="inCoin-dropdown-icon">ETH
                                 </a>
-                                <a href="#empty" data-coin="tether" data-symbol="USDT">
+                                <a href="#empty" data-inCoin="tether" data-inSymbol="USDT">
                                     <img src="https://cryptologos.cc/logos/tether-usdt-logo.svg?v=024" alt="Tether" class="inCoin-dropdown-icon">USDT
                                 </a>
-                                <a href="#empty" data-coin="usd-coin" data-symbol="USDC">
+                                <a href="#empty" data-inCoin="usd-coin" data-inSymbol="USDC">
                                     <img src="https://cryptologos.cc/logos/usd-coin-usdc-logo.svg?v=024" alt="USD Coin" class="inCoin-dropdown-icon">USDC
                                 </a>
-                                <a href="#empty" data-coin="binancecoin" data-symbol="BNB">
+                                <a href="#empty" data-inCoin="binancecoin" data-inSymbol="BNB">
                                     <img src="https://cryptologos.cc/logos/bnb-bnb-logo.svg?v=024" alt="Binance Coin" class="inCoin-dropdown-icon">BNB
                                 </a>
-                                <a href="#empty" data-coin="wrapped-bitcoin" data-symbol="WBTC">
+                                <a href="#empty" data-inCoin="wrapped-bitcoin" data-inSymbol="WBTC">
                                     <img src="https://altcoinsbox.com/wp-content/uploads/2023/01/wbtc-wrapped-bitcoin-logo.png" alt="Wrapped Bitcoin" class="inCoin-dropdown-icon">WBTC
                                 </a>
-                                <a href="#empty" data-coin="matic-network" data-symbol="MATIC">
+                                <a href="#empty" data-inCoin="matic-network" data-inSymbol="MATIC">
                                     <img src="https://cdn.iconscout.com/icon/free/png-512/free-polygon-token-4086725-3379855.png?f=avif&w=256" alt="Polygon" class="inCoin-dropdown-icon">MATIC
                                 </a>
-                                <a href="#empty" data-coin="shiba-inu" data-symbol="SHIB">
+                                <a href="#empty" data-inCoin="shiba-inu" data-inSymbol="SHIB">
                                     <img src="https://cryptologos.cc/logos/shiba-inu-shib-logo.svg?v=024" alt="Shiba Inu" class="inCoin-dropdown-icon">SHIB
                                 </a>
-                                <a href="#empty" data-coin="ERC-20" id="erc20-popup-link" data-symbol="ERC-20 Tokens">
+                                <a href="#empty" data-inCoin="ERC-20" id="erc20-popup-link" data-inSymbol="ERC-20 Tokens">
                                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Icons8_flat_plus.svg/480px-Icons8_flat_plus.svg.png" alt="ERC-20 Addition" class="inCoin-dropdown-icon">
                                     <input id="erc20-token-address" type="text" required placeholder="ERC-20 Token Address">
                                 </a>
@@ -100,13 +106,8 @@
                         </div>
                     </li>
                     <li>
-                        <label for="transfer-gbp-value" id="gbp-value-label">GBP Value:
-                            <input id="transfer-gbp-value" type="number" required placeholder="159.99">
-                        </label>
-                    </li>
-                    <li>
-                        <label for="transfer-quantity" id="quantity-label">Coin Quantity:
-                            <p id="transfer-quantity"></p>
+                        <label for="inCoin-transfer-quantity" id="inCoin-quantity-label">Send Quantity:
+                            <p id="inCoin-transfer-quantity"></p>
                         </label>
                     </li>
                     </ul>
@@ -124,19 +125,19 @@
                             </button>
                             <div class="outCoin-dropdown-content">
                                 <!-- #empty is just a placeholder until contract links are figured out-->
-                                <a href="#empty" data-symbol="GBPT">
+                                <a href="#empty" data-outCoin="poundtoken" data-outSymbol="GBPT">
                                     <img src="https://s2.coinmarketcap.com/static/img/coins/200x200/21145.png" alt="Pound Token" class="outCoin-dropdown-icon">GBPT
                                 </a>
-                                <a href="#empty" data-symbol="USDT">
+                                <a href="#empty" data-outCoin="tether" data-outSymbol="USDT">
                                     <img src="https://cryptologos.cc/logos/tether-usdt-logo.svg?v=024" alt="Tether" class="outCoin-dropdown-icon">USDT
                                 </a>
-                                <a href="#empty" data-symbol="USDC">
+                                <a href="#empty" data-outCoin="usd-coin" data-outSymbol="USDC">
                                     <img src="https://cryptologos.cc/logos/usd-coin-usdc-logo.svg?v=024" alt="USD Coin" class="outCoin-dropdown-icon">USDC
                                 </a>
-                                <a href="#empty" data-symbol="ETH">
-                                    <img src="https://cdn.cdnlogo.com/logos/e/81/ethereum-eth.svg" alt="Ethereum" class="outCoin-dropdown-icon">ETH
+                                <a href="#empty" data-outCoin="weth" data-outSymbol="WETH">
+                                    <img src="https://ucarecdn.com/c01c9021-a497-41b5-8597-9ab4e71440c1/wrapped-eth.png" alt="Wrapped Ethereum" class="outCoin-dropdown-icon">WETH
                                 </a>
-                                <a href="#empty" data-symbol="ERC-20" id="erc20-popup-link">
+                                <a href="#empty" data-outCoin="" data-outSymbol="ERC-20" id="erc20-popup-link">
                                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Icons8_flat_plus.svg/480px-Icons8_flat_plus.svg.png" alt="ERC-20 Addition" class="inCoin-dropdown-icon">
                                     <input id="erc20-token-address" type="text" required placeholder="ERC-20 Token Address">
                                 </a>
@@ -146,6 +147,11 @@
                     <li>
                         <label for="recipient" id="recipient-label">Recipient Address:
                             <input id="recipient" type="text" required placeholder="0x71C7656EC7ab88b098defB751B7401B5f6d8976F">
+                        </label>
+                    </li>
+                    <li>
+                        <label for="outCoin-transfer-quantity" id="outCoin-quantity-label">Receives Quantity:
+                            <input id="outCoin-transfer-quantity" type="number" required placeholder="0.0123">
                         </label>
                     </li>
                     </ul>
