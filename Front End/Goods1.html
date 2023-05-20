@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>DPay Interface</title>
+        <title>DPay Goods Detail</title>
         <meta charset="utf-8">
         <meta name="description" content="Detail page for Online Store">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-        <link rel="stylesheet" href="..\Test\CSS\Goods1.css">
-        <script defer src="..\Test\Goods1.js"></script>
+        <link rel="stylesheet" href="..\Front End\CSS\Goods1.css">
+        <script defer src="..\Front End\js\Goods1.js"></script>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source Sans Pro">
@@ -23,19 +23,25 @@
         <main>
             <div id="Online-Store" class="Online-Store">
                 <div class="left-content">
-                    <img id="appleImage" src="../Test/images/apple_12.jpg" alt="">
+                    <img id="appleImage" src="../Front End/images/apple_12.jpg" alt="">
                 </div>
                 <div class="right-content">
                     <ul>
-                        <p>Juicy and Organic Apple by TheFarmer</p>
+                        <p id="p_head">Juicy and Organic Apple by FruitShare</p>
                         <div class="separator"></div>
                         <div id="tableContainer">
-                            <p>size:</p>
+                            <p id="p_size">size:</p>
                             <p id="appleText">12 Count</p>
                         </div>
-                        <button id="apple12">12 Count</button>
-                        <button id="apple24">24 Count</button>
-                        <table>
+                        <button id="apple12" onclick="changeLink(10)">
+                            12 Count <br>
+                            ￡ 10
+                        </button>
+                        <button id="apple24" onclick="changeLink(18)">
+                            24 Count <br>
+                            ￡ 18
+                        </button>
+                        <table id="table">
                             <tr>
                               <th>Flavor</th>
                               <td>Apple</td>
@@ -60,10 +66,14 @@
                               <li>100% USDA Organic</li>
                               <li>Non-GMO</li>
                               <li>Hand Packaged</li>
-                              <li>24 Organic Honeycrisp Apples</li>
+                              <li id="sizeText">12 Organic Honeycrisp Apples</li>
                             </ul>
                         </div>
-                        <button>Buy</button>
+                        <div class="separator"></div>
+                        <p id="p_buy"></p>
+                        <a id="buyLink" href="..\Front End\Goods1.html">
+                            <button id="buy">Buy</button>
+                        </a>
                     </ul>
                 </div>          
             </div>

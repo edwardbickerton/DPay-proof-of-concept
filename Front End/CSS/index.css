@@ -278,46 +278,62 @@ html {
 
 /* main*/
 #Online-Store {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    width: 1400px;
-    height: 550px;
+    margin-top: 15px;
+    width: auto;
     margin: 0 auto;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
   
-.left-content{
-    width: 500px;
-    height: 500px;
+.title {
+    height: 40px;
+    color: black;
+}
+
+.content {
+    font-size: 0;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.content li {
+    display: inline-block;
+    border: 1px solid black;
+    width: 257px;
+    height: 100%;
     background-color: white;
-}
-
-.right-content{
-    width: 700px;
-    height: 500px;
-    background-color: lightblue;
-}
-
-.left-content .img {
-    width: 100%;
-}
-
-.right-content .separator {
-    height: 1px;
-    background-color: #000;
-    margin: 10px 0;
-}
-
-#tableContainer {
-    display: flex;
+    list-style-type: none;
     align-items: center;
+    box-sizing: border-box;
 }
 
-#listcontainer li {
-    list-style: disc;
+.content li:nth-child(5n) {
+    margin-right: 0;
 }
+
+.content img {
+    margin-top: 5px;
+    margin-left: 25px;
+    width: 210px;
+    height: 210px;
+}
+
+.content li h3 {
+    margin-left: 10px;
+    font-size: 14px;
+    color: black;
+    text-align: left;
+}
+
+.content li p {
+    margin-left: 6px;
+    color: orange;
+    font-size: 18px;
+    text-align: left;
+}
+
 
 /* Accepted Coins Secion */
 .tokens-section {
@@ -381,28 +397,4 @@ footer {
 
 .footer-item-right {
     transition: transform 0.3s ease;
-}
-
-
-
-.wrapper {
-    width: 1200px;
-    margin: 0 auto;
-}
-
-.head {
-    width: 1500px;
-    background-color: black;
-}
-
-.head .title{
-    height: 80px;
-}
-
-.head .title li{
-    float: left;
-    margin-left: 40px;
-    margin-top: 20px;
-    font-size: 25px;
-    color: #DDDDDD;
 }
