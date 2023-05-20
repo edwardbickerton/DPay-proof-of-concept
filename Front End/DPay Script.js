@@ -2,8 +2,6 @@
 let params = new URLSearchParams(window.location.search);
 let goods_type = params.get('var1');
 let goods_price = params.get('var2'); 
-var labelElement = document.getElementById('gbp-value-label');
-labelElement.textContent = 'GBP value:  ' + goods_price;
 
 /* Network dropdown menu */
 const dropdownContent = document.querySelector(".dropdown-content");
