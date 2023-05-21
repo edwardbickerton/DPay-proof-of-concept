@@ -1,7 +1,17 @@
+import {ethers} from "ethers";
+// import {useState} from "react";
+
+// const [isConnected, setIsConnect] = useState(false);
+
+/**
+ * signer: To sign the transaction when interact with the contract
+ */
+// const [signer, setSigner] = useState();
+
 /* get the parameter */
 let params = new URLSearchParams(window.location.search);
 let goods_type = params.get('var1');
-let goods_price = params.get('var2'); 
+let goods_price = params.get('var2');
 
 /* Network dropdown menu */
 const dropdownContent = document.querySelector(".dropdown-content");
@@ -112,20 +122,20 @@ dropdownLinks.forEach(link => {
 
 function getChainId(network) {
     switch (network) {
-      case "Ethereum":
-        return "0x1";
-      case "BNB Chain":
-        return "0x38";
-      case "Polygon":
-        return "0x89";
-      case "Optimism":
-        return "0xA";
-      case "Arbitrum One":
-        return "0xA4B1"
-      case "Celo Mainnet":
-        return "0xA4EC";
-      default:
-        return null;
+        case "Ethereum":
+            return "0x1";
+        case "BNB Chain":
+            return "0x38";
+        case "Polygon":
+            return "0x89";
+        case "Optimism":
+            return "0xA";
+        case "Arbitrum One":
+            return "0xA4B1"
+        case "Celo Mainnet":
+            return "0xA4EC";
+        default:
+            return null;
     }
 }
 
@@ -225,19 +235,6 @@ outCoinInput.addEventListener("input", function () {
     }
 });
 
-import {ethers} from "ethers";
-import {useState} from "react";
-
-/**
- *
- */
-const [isConnected, setIsConnect] = useState(false);
-
-/**
- * signer: To sign the transaction when interact with the contract
- */
-const [signer, setSigner] = useState();
-
 /**
  * The out coin address on ETH chain
  * @type {Map<String, String>}
@@ -332,6 +329,7 @@ async function execute() {
     // "maxInAmount": the maximum amount of inCoin the user is willing to spend.
     // "recipient": the address of the recipient who will receive outAmount of outCoin.
 
+    const signer = getWallet();
     const contractAddress = ""; // the address of contract
     const abi = [
         {
@@ -391,7 +389,7 @@ async function execute() {
             "type": "function"
         }
     ];
-    const contract = new ethers.Contract(contractAddress, abi, signer);
+    const contract = new ethers.Contract(contractAddress, abi, await signer);
 
     if (dataSymbolForCoinAddress === "ETH") {
         if (typeof window.ethereum !== "undefined") {
@@ -438,12 +436,21 @@ async function execute() {
 
 }
 
+async function getWallet(){
+    let connectedProvider = new ethers.providers.Web3Provider(
+        window.ethereum
+    );
+    let signer = connectedProvider.getSigner();
+    return signer;
+}
+
 /**
  * When user click pay button, the listener inside onPay will send the transaction into blockchain
  * @type {Element}
  */
 const onPay = document.querySelector(".confirm-payment");
 
-onPay.addEventListener("click", function (event){
+onPay.addEventListener("click", function (event) {
     execute();
+    alert("sfa");
 })

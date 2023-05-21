@@ -20,6 +20,6 @@ button24.addEventListener("click", function() {
   });
 
 function changeLink(value) {
-  var link = document.getElementById('myLink');
+  var link = document.getElementById('buyLink');
   buyLink.href = "../Front End/Dpay Webpage.html?var1=value1&var2=" + value;
 }
