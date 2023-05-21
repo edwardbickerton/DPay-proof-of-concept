@@ -1,0 +1,17 @@
+{
+  "name": "DPay",
+  "version": "1.0.0",
+  "description": "A great project",
+  "main": "./Front End/forPackage.js",
+  "scripts": {
+    "build": "webpack"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "ethers": "^5.0.0"
+  },
+  "devDependencies": {
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11"
+  }
+}
