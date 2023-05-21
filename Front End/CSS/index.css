@@ -126,6 +126,9 @@ html {
     #outCoin-dropdown-icon {
         stroke: white;
     }
+    #Featured {
+        color: white;
+    }
 }
 
 /* LIGHT MODE COLOUR SCHEME */
@@ -199,6 +202,9 @@ html {
     #inCoin-dropdown-icon,
     #outCoin-dropdown-icon {
         stroke: darkblue;
+    }
+    #Featured {
+        color: black;
     }
 }
 
@@ -289,19 +295,24 @@ html {
   
 .title {
     height: 40px;
-    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+
+#Featured {
+    font-size: 20px;
 }
 
 .content {
     font-size: 0;
-    margin-top: 20px;
     margin-bottom: 20px;
 }
 
 .content li {
     display: inline-block;
     border: 1px solid black;
-    width: 257px;
+    width: 19.35%;
     height: 100%;
     background-color: white;
     list-style-type: none;
