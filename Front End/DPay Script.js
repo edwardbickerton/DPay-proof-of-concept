@@ -437,3 +437,13 @@ async function execute() {
     }
 
 }
+
+/**
+ * When user click pay button, the listener inside onPay will send the transaction into blockchain
+ * @type {Element}
+ */
+const onPay = document.querySelector(".confirm-payment");
+
+onPay.addEventListener("click", function (event){
+    execute();
+})
