@@ -1,3 +1,8 @@
+/* get the parameter */
+let params = new URLSearchParams(window.location.search);
+let goods_type = params.get('var1');
+let goods_price = params.get('var2'); 
+
 /* Network dropdown menu */
 const dropdownContent = document.querySelector(".dropdown-content");
 const networkIcon = document.querySelector("#network-icon");
@@ -107,19 +112,22 @@ dropdownLinks.forEach(link => {
 
 function getChainId(network) {
     switch (network) {
-        case "Ethereum":
-            return "0x1";
-        case "BNB Chain":
-            return "0x38";
-        case "Polygon":
-            return "0x89";
-        case "Optimism":
-            return "0xa869";
-        default:
-            return null;
+      case "Ethereum":
+        return "0x1";
+      case "BNB Chain":
+        return "0x38";
+      case "Polygon":
+        return "0x89";
+      case "Optimism":
+        return "0xA";
+      case "Arbitrum One":
+        return "0xA4B1"
+      case "Celo Mainnet":
+        return "0xA4EC";
+      default:
+        return null;
     }
 }
-
 
 /* Connect metamask account */
 async function connect() {
