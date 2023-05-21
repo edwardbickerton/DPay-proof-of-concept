@@ -1,2 +1,2 @@
 import './DPay Script';
-import './Goods1.js';
+import './js/Goods1.js';
