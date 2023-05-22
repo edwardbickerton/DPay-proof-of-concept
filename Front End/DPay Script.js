@@ -250,19 +250,19 @@ const [signer, setSigner] = useState();
  * The out coin address on ETH chain
  * @type {Map<String, String>}
  */
-const outCoinAddressMap = new Map();
-outCoinAddressMap.set("USDT", "0xdAC17F958D2ee523a2206206994597C13D831ec7");
-outCoinAddressMap.set("USDC", "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48");
-outCoinAddressMap.set("BNB", "0xb8c77482e45f1f44de1745f52c74426c631bdd52");
-outCoinAddressMap.set("WBTC", "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599");
-outCoinAddressMap.set("MATIC", "0x7D1AfA7B718fb893dB30A3aBc0Cfc608AaCfeBB0");
-outCoinAddressMap.set("SHIB", "0x95ad61b0a150d79219dcf64e1e6cc01f0b64c4ce");
+const inCoinAddressMap = new Map();
+inCoinAddressMap.set("USDT", "0xdAC17F958D2ee523a2206206994597C13D831ec7");
+inCoinAddressMap.set("USDC", "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48");
+inCoinAddressMap.set("BNB", "0xb8c77482e45f1f44de1745f52c74426c631bdd52");
+inCoinAddressMap.set("WBTC", "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599");
+inCoinAddressMap.set("MATIC", "0x7D1AfA7B718fb893dB30A3aBc0Cfc608AaCfeBB0");
+inCoinAddressMap.set("SHIB", "0x95ad61b0a150d79219dcf64e1e6cc01f0b64c4ce");
 
 /**
  * The in coin address on ETH chain
  * @type {Map<String, String>}
  */
-const inCoinAddressMap = new Map();
+const outCoinAddressMap = new Map();
 outCoinAddressMap.set("USDT", "0xdAC17F958D2ee523a2206206994597C13D831ec7");
 outCoinAddressMap.set("USDC", "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48");
 outCoinAddressMap.set("GBPT", "0x86b4dbe5d203e634a12364c0e428fa242a3fba98");
