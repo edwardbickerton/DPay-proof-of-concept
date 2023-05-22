@@ -139,23 +139,6 @@ function getChainId(network) {
     }
 }
 
-// Connect metamask account
-async function connect() {
-    try {
-        if (typeof window.ethereum !== "undefined") {
-        await ethereum.request({ method: "eth_requestAccounts" });
-        } else {
-        throw new Error("MetaMask is not installed.");
-        }
-    } catch (error) {
-        alert(error.message);
-    }
-}
-
-// Add event listener to the "Connect" button
-const connectButton = document.getElementById("connectButton");
-connectButton.addEventListener("click", connect);
-
 // Defining variables for quantity calculations
 let selectedInCoin = "";
 let selectedInSymbol = "";

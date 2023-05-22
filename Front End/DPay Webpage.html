@@ -51,6 +51,19 @@
                     </div>
                 </li>
                 <li class="nav-item-right">
+                    <script>
+                        async function connect() {
+                            try {
+                            if (typeof window.ethereum !== "undefined") {
+                                await ethereum.request({ method: "eth_requestAccounts" });
+                            } else {
+                                throw new Error("MetaMask is not installed.");
+                            }
+                            } catch (error) {
+                            alert(error.message);
+                            }
+                        }
+                    </script>
                     <button id="connectButton" onclick="connect()">Connect</button>
                 </li>
                 <!-- Finish when known how to link wallet and change blockchain -->
