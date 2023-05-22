@@ -248,6 +248,7 @@ const outCoinAddressMap = new Map();
 outCoinAddressMap.set("USDT", "0xdAC17F958D2ee523a2206206994597C13D831ec7");
 outCoinAddressMap.set("USDC", "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48");
 outCoinAddressMap.set("GBPT", "0x86b4dbe5d203e634a12364c0e428fa242a3fba98");
+outCoinAddressMap.set("WETH", "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2");
 
 /**
  * To store the user selected coin type from the web page
@@ -298,6 +299,10 @@ let outCoinSymbolForAddress = "";
  */
 let outCoinInputAddress = "";
 
+/**
+ * once the users choose the crypto type from the dropdown menu, get and store the crypto type
+ * value that users chose.
+ */
 outCoinDropdownBtn.addEventListener("click", function (event) {
     if (event && event.target.tagName === "A") {
         outCoinSymbolForAddress = event.target.getAttribute("data-outSymbol");
@@ -323,7 +328,7 @@ async function execute() {
     // "maxInAmount": the maximum amount of inCoin the user is willing to spend.
     // "recipient": the address of the recipient who will receive outAmount of outCoin.
 
-    const signer = getWallet();
+    const signer = await getWallet();
     const contractAddress = "0x522B5717ec7bB25FF9B0667181386831eF44047b"; // the address of contract
     const abi = [
         {
@@ -387,28 +392,53 @@ async function execute() {
         console.log('Invalid contract address:', contractAddress);
     }
 
+    {
+        console.log("testing");
+        console.log("contractAddress:"+contractAddress);
+        console.log("signer: "+signer);
+        console.log("outCoinInputAddress"+outCoinAddressMap.get(outCoinSymbolForAddress));
+        console.log(outCoinAddressMap.get(outCoinSymbolForAddress));
+        console.log("recipient:"+document.getElementById("recipient").value);
+        console.log("Testing end");
+    }
+
     const contract = new ethers.Contract(contractAddress, abi, await signer);
 
     if (dataSymbolForCoinAddress === "ETH") {
         if (typeof window.ethereum !== "undefined") {
             try {
+                outCoinInputAddress = outCoinInputAddress === "" ?
+                    outCoinAddressMap.get(outCoinSymbolForAddress) : outCoinInputAddress;
+                let outCoinQuantityWei = await getBigWei(outCoinQuantity, await getDecimals(outCoinInputAddress));
                 // address outCoin,
                 // uint256 outAmount,
                 // address recipient
+                alert(document.getElementById("recipient").value);
                 await contract.swapEthSendToken(
-                    outCoinInputAddress === "" ? outCoinAddressMap.get(outCoinSymbolForAddress) : outCoinInputAddress,
-                    outCoinQuantity,
-                    document.getElementById("recipient"));
+                    outCoinInputAddress,
+                    outCoinQuantityWei,
+                    document.getElementById("recipient").value
+                );
+
+                alert("Transaction completed!");
             } catch (error) {
                 alert("Transaction failed! Please check if you input the right coin address.");
                 console.log(error);
             }
         } else {
-            alert("Please install MetaMask")
+            alert("Please install MetaMask");
         }
     } else {
         if (typeof window.ethereum !== "undefined") {
             try {
+                outCoinInputAddress = outCoinInputAddress === "" ?
+                    outCoinAddressMap.get(outCoinSymbolForAddress) : outCoinInputAddress;
+                let outCoinQuantityWei = await getBigWei(outCoinQuantity, await getDecimals(outCoinInputAddress));
+
+                inCoinInputAddress = inCoinInputAddress === "" ?
+                    inCoinAddressMap.get(dataSymbolForCoinAddress) : inCoinInputAddress;
+                let inCoinQuantityWei = await getBigWei(outCoinQuantity, await getDecimals(inCoinInputAddress));
+
                 //address outCoin,
                 //uint256 outAmount,
                 //address inCoin,
@@ -416,12 +446,12 @@ async function execute() {
                 //address recipient
                 await contract.swapTokenSendToken(
                     // outCoin
-                    outCoinInputAddress === "" ? outCoinAddressMap.get(outCoinSymbolForAddress) : outCoinInputAddress,
-                    outCoinQuantity, // outAmount
+                    outCoinInputAddress,
+                    outCoinQuantityWei, // outAmount
                     // inCoin
-                    inCoinInputAddress === "" ? inCoinAddressMap.get(dataSymbolForCoinAddress) : inCoinInputAddress,
-                    calculateInCoinQuantity(inCoinQuantity), // maxInAmount
-                    document.getElementById("recipient")); // recipient
+                    inCoinInputAddress,
+                    inCoinQuantityWei, // maxInAmount
+                    document.getElementById("recipient").value); // recipient
             } catch (error) {
                 alert("Transaction failed! Please check if you input the right coin address.");
                 console.log(error);
@@ -433,6 +463,58 @@ async function execute() {
 
 }
 
+/**
+ * function to get the decimal places of crypto
+ * @param contractAddress The ETH address of the crypto
+ * @returns {Promise<*>}
+ */
+async function getDecimals(contractAddress) {
+    const abi = [
+        // Some part of ERC20 interface
+        {
+            "constant": true,
+            "inputs": [],
+            "name": "decimals",
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "uint8"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+        }
+    ];
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const contract = new ethers.Contract(contractAddress, abi, provider);
+    try {
+        const decimals = await contract.decimals();
+        console.log(decimals);
+        return decimals;
+    } catch (error) {
+        console.error("An error occurred", error);
+        throw error;
+    }
+}
+
+/**
+ * turn the coin amount into the amount in terms of wei
+ * @param coinQuantity
+ * @param decimalPlaces the demical places of the crypto
+ * @returns {Promise<BigNumber>}
+ */
+async function getBigWei(coinQuantity, decimalPlaces){
+    let coinQuantityBigNumber = ethers.BigNumber.from(coinQuantity);
+    let coinQuantityWei = coinQuantityBigNumber.mul(ethers.BigNumber.from("10").pow(decimalPlaces));
+    return coinQuantityWei;
+}
+
+/**
+ * get signer of users' metamask, if they don't have metamask installed, a window will pop up to
+ * tell users to install metamask first
+ * @returns {Promise<JsonRpcSigner>}
+ */
 async function getWallet(){
     // check if MetaMask is installed
     if (typeof window.ethereum !== 'undefined' || (typeof window.web3 !== 'undefined')) {
@@ -444,6 +526,9 @@ async function getWallet(){
 
     const accounts = await ethereum.request({ method: 'eth_accounts' });
     console.log("address: "+accounts[0]); // print the account address get
+    // console.log("address: "+accounts[1]); // print the account address get
+    // console.log("address: "+accounts[2]); // print the account address get
+    // console.log("address: "+accounts[3]); // print the account address get
 
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     ethereum.enable();
