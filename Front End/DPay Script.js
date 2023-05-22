@@ -383,6 +383,10 @@ async function execute() {
             "type": "function"
         }
     ];
+    if (!ethers.utils.isAddress(contractAddress)) {
+        console.log('Invalid contract address:', contractAddress);
+    }
+
     const contract = new ethers.Contract(contractAddress, abi, await signer);
 
     if (dataSymbolForCoinAddress === "ETH") {

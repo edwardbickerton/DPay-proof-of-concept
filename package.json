@@ -7,11 +7,11 @@
     "build": "webpack"
   },
   "dependencies": {
-    "react": "^17.0.2",
-    "ethers": "^5.0.0"
+    "ethers": "^5.0.0",
+    "react": "^17.0.2"
   },
   "devDependencies": {
-    "webpack": "^4.41.6",
-    "webpack-cli": "^3.3.11"
+    "webpack": "^5.10.3",
+    "webpack-cli": "^5.1.1"
   }
 }
