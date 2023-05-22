@@ -1,1 +1,4 @@
 /node_modules/
+/.deps
+/.idea
+/.DS_Store
