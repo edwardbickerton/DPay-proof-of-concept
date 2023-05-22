@@ -215,9 +215,11 @@ outDropdownBtn.addEventListener("click", function (event) {
 
 // Function to handle input change in the outCoin quantity and dynamically update quantity
 const outCoinInput = document.querySelector("#outCoin-transfer-quantity");
+let outCoinQuantity = 0;
+let inCoinQuantity = 0;
 outCoinInput.addEventListener("input", function () {
-    const outCoinQuantity = parseFloat(outCoinInput.value);
-    const inCoinQuantity = calculateInCoinQuantity(outCoinQuantity);
+    outCoinQuantity = parseFloat(outCoinInput.value);
+    inCoinQuantity = calculateInCoinQuantity(outCoinQuantity);
     const quantityLabel = document.querySelector("#inCoin-quantity-label #inCoin-transfer-quantity");
     if (!isNaN(inCoinQuantity)) {
         quantityLabel.textContent = `${inCoinQuantity.toFixed(6)} ${selectedInSymbol}`;
@@ -322,7 +324,7 @@ async function execute() {
     // "recipient": the address of the recipient who will receive outAmount of outCoin.
 
     const signer = getWallet();
-    const contractAddress = ""; // the address of contract
+    const contractAddress = "0x522B5717ec7bB25FF9B0667181386831eF44047b"; // the address of contract
     const abi = [
         {
             "inputs": [
@@ -391,8 +393,8 @@ async function execute() {
                 // address recipient
                 await contract.swapEthSendToken(
                     outCoinInputAddress === "" ? outCoinAddressMap.get(outCoinSymbolForAddress) : outCoinInputAddress,
-                    Number(Document.getElementById("transfer-gbp-value").value),
-                    Document.getElementById("recipient"));
+                    outCoinQuantity,
+                    document.getElementById("recipient"));
             } catch (error) {
                 alert("Transaction failed! Please check if you input the right coin address.");
                 console.log(error);
@@ -402,7 +404,6 @@ async function execute() {
         }
     } else {
         if (typeof window.ethereum !== "undefined") {
-            let outAmount = Number(Document.getElementById("transfer-gbp-value").value);
             try {
                 //address outCoin,
                 //uint256 outAmount,
@@ -412,11 +413,11 @@ async function execute() {
                 await contract.swapTokenSendToken(
                     // outCoin
                     outCoinInputAddress === "" ? outCoinAddressMap.get(outCoinSymbolForAddress) : outCoinInputAddress,
-                    outAmount, // outAmount
+                    outCoinQuantity, // outAmount
                     // inCoin
                     inCoinInputAddress === "" ? inCoinAddressMap.get(dataSymbolForCoinAddress) : inCoinInputAddress,
-                    calculateInCoinQuantity(outAmount), // maxInAmount
-                    Document.getElementById("recipient")); // recipient
+                    calculateInCoinQuantity(inCoinQuantity), // maxInAmount
+                    document.getElementById("recipient")); // recipient
             } catch (error) {
                 alert("Transaction failed! Please check if you input the right coin address.");
                 console.log(error);
@@ -429,10 +430,20 @@ async function execute() {
 }
 
 async function getWallet(){
-    let connectedProvider = new ethers.providers.Web3Provider(
-        window.ethereum
-    );
-    let signer = connectedProvider.getSigner();
+    // check if MetaMask is installed
+    if (typeof window.ethereum !== 'undefined' || (typeof window.web3 !== 'undefined')) {
+        // MetaMask has a global web3 instance
+        const web3 = window.web3;
+    } else {
+        console.log('Please install metamask');
+    }
+
+    const accounts = await ethereum.request({ method: 'eth_accounts' });
+    console.log("address: "+accounts[0]); // print the account address get
+
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    ethereum.enable();
+    const signer = await provider.getSigner();
     return signer;
 }
 
