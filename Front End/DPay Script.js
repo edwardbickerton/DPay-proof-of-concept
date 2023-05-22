@@ -131,7 +131,7 @@ function getChainId(network) {
         case "Optimism":
             return "0xA";
         case "Arbitrum One":
-            return "0xA4B1"
+            return "0xA4B1";
         case "Celo Mainnet":
             return "0xA4EC";
         default:
