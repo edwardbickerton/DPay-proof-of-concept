@@ -126,6 +126,21 @@ html {
     #outCoin-dropdown-icon {
         stroke: white;
     }
+    .Online-Store .right-content {
+        color: white;
+    }
+    #apple12 {
+        background-color: var(--pink-mid);
+        color: white;
+    }
+    #apple24 {
+        background-color: var(--pink-mid);
+        color: white;
+    }
+    #buy {
+        background-color: var(--pink-mid);
+        color: white;
+    }
 }
 
 /* LIGHT MODE COLOUR SCHEME */
