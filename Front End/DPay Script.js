@@ -322,6 +322,7 @@ outCoinDropdownBtn.addEventListener("click", function (event) {
  * @returns {Promise<void>}
  */
 async function execute() {
+    alert("Executing...");
     // the following are needed:
     // "outCoin": the contract address of the coin the recipient wants.
     // "outAmount": the amount of outCoin which the recipient is expecting.
@@ -452,5 +453,4 @@ const onPay = document.querySelector(".confirm-payment");
 
 onPay.addEventListener("click", function (event) {
     execute();
-    alert("sfa");
 })
