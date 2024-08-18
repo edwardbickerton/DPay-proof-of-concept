@@ -1,5 +1,7 @@
 # DPay Proof of Concept
 
+DPay, is a cryptocurrency payment service that facilitates cryptocurrency transactions. In its current state, DPay takes a quantity of any [ERC-20](https://eips.ethereum.org/EIPS/eip-20) cryptocurrency from the user, converts it to the type expected by the recipient of the payment, and sends the converted cryptocurrency to the target wallet address given by the merchant at the checkout of a transaction. Cutting out the extra steps of a user having to go to a third-party exchange and manually swap their cryptocurrency before returning to the transaction will make the shopping experience of an online retailer much more streamlined and convenient for the user.
+
 ## [Contracts](/Back%20End/contracts/)
 
 ### [`DPay.sol`](/Back%20End/contracts/DPay.sol)
